@@ -39,9 +39,13 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
 		<CategoryBody>
 			<CategoryInfoList>
 				{categoryInfos.map((info, index) => (
-					<CategoryTile key={index} profileImgUrl={info.imageUrl} name={info.name}>
-						{info.name}
-					</CategoryTile>
+					<CategoryTile
+						key={index}
+						profileImgUrl={info.imageUrl}
+						name={info.name}
+						id={info.id}
+						categoryId={info.conCategory1Id}
+					/>
           ))}
 			</CategoryInfoList>
 		</CategoryBody>
