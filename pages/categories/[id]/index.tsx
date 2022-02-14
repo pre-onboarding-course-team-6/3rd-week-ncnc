@@ -3,25 +3,24 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Appbar from "components/Appbar";
+import CategoryTile from "components/CategoryTile";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
-import { HorizontalBox, BoxItem } from "./style";
-
-// const title = "카페";
+import { ICategory, CategoryInfo } from "shared/const";
+import {
+  HorizontalBox,
+  BoxItem,
+  CategoryInfoList,
+  CategoryBody,
+} from "./style";
 
 type Props = {
-    categories: Category[],
+    categories: ICategory[],
+    categoryInfos: CategoryInfo[],
 }
 
-interface Category {
-    id: number;
-    name: string;
-    discountRate: number;
-    imageUrl: string;
-}
-
-const Category: React.FC<Props> = ({ categories }) => {
+const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
   const router = useRouter();
   const { id } = router.query;
   const currentCategory = categories.find((element) => element.id === Number(id));
@@ -37,22 +36,33 @@ const Category: React.FC<Props> = ({ categories }) => {
 				</Link>
 			)))}
 		</HorizontalBox>
-		<p>
-			현재 위치:
-			{id}
-		</p>
+		<CategoryBody>
+			<CategoryInfoList>
+				{categoryInfos.map((info, index) => (
+					<CategoryTile key={index} profileImgUrl={info.imageUrl} name={info.name}>
+						{info.name}
+					</CategoryTile>
+          ))}
+			</CategoryInfoList>
+		</CategoryBody>
 	</>
   );
 };
 
 export default Category;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { params } = context;
   const API_URL = "https://api2.ncnc.app/con-category1s";
+  const DETAIL_URL = `https://api2.ncnc.app/con-category1s/${params.id}/nested`;
   const response = await axios(`${API_URL}`);
+  const responseTwo = await axios(DETAIL_URL);
+  const { conCategory1s } = response.data;
+  const { conCategory1: { conCategory2s } } = responseTwo.data;
   return {
     props: {
-      categories: response.data.conCategory1s,
+      categories: conCategory1s,
+      categoryInfos: conCategory2s,
     },
   };
 };
