@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const AppbarContainer = styled.div`
+    padding: 10px;
+    text-align: center;
     height: 93px;
     width: 375px;
 `;

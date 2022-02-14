@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ProductProps } from "shared/const";
+import Appbar from "components/Appbar";
 import ProductList from "components/ProductList";
 
 const Index = () => {
@@ -15,7 +16,18 @@ const Index = () => {
     GetJsonData("https://api2.ncnc.app/con-items/soon");
   }, []);
 
-  return <div><ProductList lists={lists} /></div>;
+  if (lists === null) {
+    return (
+	    <div>loading</div>
+    );
+  }
+
+  return (
+	<div>
+		<Appbar title="니콘내콘" />
+		<ProductList lists={lists} />
+	</div>
+  );
 };
 
 export default Index;

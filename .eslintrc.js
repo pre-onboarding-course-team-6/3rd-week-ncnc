@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {
-    indent: "off",
+    "no-mixed-spaces-and-tabs": 0, // disable rule
     quotes: [2, "double"],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
