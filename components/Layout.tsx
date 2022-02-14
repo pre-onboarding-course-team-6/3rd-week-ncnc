@@ -1,11 +1,9 @@
+import React from "react";
 
-
-const Layout:React.FC = ({ children }) => {
-    return (
-        <div>
-            <main>{children}</main>
-        </div>
-    );
-}
+const Layout:React.FC = ({ children }) => (
+	<div>
+		<main>{children}</main>
+	</div>
+);
 
 export default Layout;

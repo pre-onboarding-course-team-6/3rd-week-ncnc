@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
 import { media } from "./theme";
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
     ${reset}
     :focus {
         outline: none;
@@ -50,3 +50,5 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 `;
+
+export default GlobalStyle;
