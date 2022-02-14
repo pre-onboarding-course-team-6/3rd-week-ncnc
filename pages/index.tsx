@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ProductProps } from "shared/const";
+import Appbar from "components/Appbar";
 import ProductList from "components/ProductList";
 
 const Index = () => {
@@ -21,7 +22,12 @@ const Index = () => {
     );
   }
 
-  return <div><ProductList lists={lists} /></div>;
+  return (
+	<div>
+		<Appbar title="니콘내콘" />
+		<ProductList lists={lists} />
+	</div>
+  );
 };
 
 export default Index;

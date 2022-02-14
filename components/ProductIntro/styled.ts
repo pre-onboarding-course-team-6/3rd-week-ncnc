@@ -8,17 +8,18 @@ export const Link = styled.a`
 export const ProductWrapper = styled.div`
   display: flex;
   border-bottom: 1px solid #efefef;
+  background-color: #ffffff;
 `;
 
 export const ProductImage = styled.img`
-  margin: 15px 21px;
+  padding: 20px;
   width: 70px;
   height: 70px;
   border-radius: 8px;
 `;
 
 export const TextWrapper = styled.div`
-  padding: 25px 0;
+  padding: 20px 0;
 `;
 
 export const BrandName = styled.div`
