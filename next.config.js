@@ -7,7 +7,9 @@ module.exports = withBundleAnalyzer({
   env: {
     BASE_URL: process.env.BASE_URL,
   },
-
+  images: {
+    domains: ["d1tftw9jjs9bx5.cloudfront.net"],
+  },
   webpack(conf) {
     conf.module.rules.push({
       test: /\.svg$/,
