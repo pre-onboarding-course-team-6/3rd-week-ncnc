@@ -1,16 +1,18 @@
-import {ProductProps} from "shared/const"
+import React from "react";
+import { ProductProps } from "shared/const";
 
 type Props = {
-  ProductList: ProductProps[]
+  lists: ProductProps[]
 }
 
-const ProductList: React.FC<Props> = ({ProductList}) => {
-  console.log(ProductList)
+const ProductList: React.FC<Props> = ({ lists }) => {
+  console.log(lists);
   return (
-    <div>
-      Enter
-    </div>
+	<div>
+		Enter
+
+	</div>
   );
-}
+};
 
 export default ProductList;
