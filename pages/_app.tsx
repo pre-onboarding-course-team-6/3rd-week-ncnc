@@ -5,11 +5,10 @@ import { GlobalStyle } from "../styles/global-style";
 import { theme } from "../styles/theme";
 import Layout from "components/Layout";
 
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head children={""}>
+      <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>boilerplate</title>
       </Head>
