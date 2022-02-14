@@ -1,6 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import { TileContainer, ProfileImage, TileName } from "./style";
+import {
+    TileContainer,
+    TileBox,
+    ProfileImage,
+    TileName,
+} from "./style";
 
 type Props = {
     id: number;
@@ -15,13 +20,13 @@ const CategoryTile: React.FC<Props> = ({
 }) => (
 	<TileContainer>
 		<Link key={id} href={`/brands/${id}`}>
-            <a>
-                <ProfileImage
-                    src={profileImgUrl}
-                    alt={name}
-                />
-                <TileName>{name}</TileName>
-            </a>
+			<TileBox>
+				<ProfileImage
+					src={profileImgUrl}
+					alt={name}
+				/>
+				<TileName>{name}</TileName>
+			</TileBox>
 		</Link>
 	</TileContainer>
     );
