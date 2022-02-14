@@ -15,6 +15,12 @@ const Index = () => {
     GetJsonData("https://api2.ncnc.app/con-items/soon");
   }, []);
 
+  if (lists === null) {
+    return (
+	    <div>loading</div>
+    );
+  }
+
   return <div><ProductList lists={lists} /></div>;
 };
 

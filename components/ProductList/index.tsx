@@ -1,17 +1,41 @@
+/* eslint-disable max-len */
+/* eslint-disable react/no-array-index-key */
 import React from "react";
 import { ProductProps } from "shared/const";
+import ProductIntro from "../ProductIntro";
+import * as S from "./styled";
 
 type Props = {
   lists: ProductProps[]
 }
 
-const ProductList: React.FC<Props> = ({ lists }) => {
-  console.log(lists);
-  return (
-	<div>
-		Enter
-	</div>
-  );
-};
+const ProductList: React.FC<Props> = ({ lists }) => (
+	<section>
+		<S.Introduce>
+			<S.RedText>
+				놓치지 마세요
+			</S.RedText>
+			<S.BlackText>
+				오늘의 땡처리콘!
+			</S.BlackText>
+		</S.Introduce>
+		{lists.map((product, index) => {
+		  const {
+		    imageUrl, name, originalPrice, minSellingPrice, conCategory2, id,
+		  } = product;
+		  return (
+			<ProductIntro
+				key={index}
+				id={id}
+				imageUrl={imageUrl}
+				name={name}
+				originalPrice={originalPrice}
+				minSellingPrice={minSellingPrice}
+				conCategory2={conCategory2}
+			/>
+		  );
+		})}
+	</section>
+);
 
 export default ProductList;
