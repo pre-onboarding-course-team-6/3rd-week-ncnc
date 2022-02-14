@@ -22,6 +22,17 @@ module.exports = {
       2,
       { extensions: [".js", ".jsx", ".ts", ".tsx"] },
     ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+        json: "never",
+      },
+    ],
     "react/function-component-definition": [
       2,
       {
@@ -37,6 +48,8 @@ module.exports = {
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
   },
   settings: {
     "import/resolver": {

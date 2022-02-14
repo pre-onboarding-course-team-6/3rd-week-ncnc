@@ -10,7 +10,6 @@ const ProductList: React.FC<Props> = ({ lists }) => {
   return (
 	<div>
 		Enter
-
 	</div>
   );
 };
