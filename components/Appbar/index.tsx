@@ -9,8 +9,12 @@ type Props = {
     iconName: string
     menuOnClick: () => void;
 }
+
 const Appbar: React.FC<Props> = ({
-  title, isBorder, iconName, menuOnClick,
+  title,
+  isBorder,
+  iconName,
+  menuOnClick,
 }) => {
   const Icon = Icons[iconName];
   return (

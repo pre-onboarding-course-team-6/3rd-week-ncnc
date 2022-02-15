@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["airbnb", "plugin:react/recommended"],
+  extends: ["airbnb", "plugin:react/recommended", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -14,6 +14,7 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {
+    indent: "off",
     "no-mixed-spaces-and-tabs": 0, // disable rule
     quotes: [2, "double"],
     "no-use-before-define": "off",
@@ -42,8 +43,8 @@ module.exports = {
       },
     ],
     "import/no-unresolved": 0,
-    "react/jsx-indent": [2, "tab"],
-    "react/jsx-indent-props": [2, "tab"],
+    "react/jsx-indent": "off",
+    "react/jsx-indent-props": "off",
     "no-tabs": 0,
     "no-console": 0,
     "@typescript-eslint/no-inferrable-types": "off",
