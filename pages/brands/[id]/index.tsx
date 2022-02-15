@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-key */
 import axios from "axios";
 import React from "react";
 import { GetServerSideProps } from "next";
@@ -7,7 +6,15 @@ import Appbar from "components/Appbar";
 import { Item } from "shared/const";
 import ProductIntro from "components/ProductIntro";
 import { useRouter } from "next/router";
-import { BrandTopContainer } from "./style";
+import styled from "styled-components";
+
+const BrandTopContainer = styled.div`
+    padding: 10px;
+    display: flex;
+    background-color: #fff;
+    top: 0;
+    border-bottom: 1px solid #F1F3F4;
+`;
 
 type Props = {
     title: string
