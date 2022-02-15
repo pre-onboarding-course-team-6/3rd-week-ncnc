@@ -51,7 +51,7 @@ const Item: React.FC<Props> = ({ item }) => {
   };
   return (
 	<S.ItemsContainer>
-		<Appbar iconName="ChevronLeftIcon" isBorder title="" menuOnClick={() => router.back()} />
+		<Appbar iconName="HomeIcon" isBorder title="" menuOnClick={() => router.back()} />
 		<ProductIntro
 			id={item.id}
 			imageUrl={item.imageUrl}

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-key */
 import axios from "axios";
 import React from "react";
@@ -18,10 +19,9 @@ const Brand: React.FC<Props> = ({ title, items }) => {
   const router = useRouter();
   return (
 	<>
-		<Appbar iconName="ChevronLeftIcon" isBorder={isBorder} title={title} menuOnClick={() => { router.back(); }} />
+		<Appbar iconName="HomeIcon" isBorder={isBorder} title={title} menuOnClick={() => { router.back(); }} />
 		<BrandTopContainer>
 			{items && items.length}
-			{" "}
 			개의 상품
 		</BrandTopContainer>
 		{items.map((item, index) => (
