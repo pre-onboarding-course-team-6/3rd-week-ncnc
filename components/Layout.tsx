@@ -9,7 +9,7 @@ const Background = styled.div`
 const Main = styled.div`
 	width: 100%;
 	max-width: 672px;
-	background-color: #eeeeee;
+	background-color: #FFFFFF;
 	display: block;
 	margin: 0 auto;
 `;

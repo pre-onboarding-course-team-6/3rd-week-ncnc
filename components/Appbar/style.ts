@@ -18,13 +18,14 @@ export const AppbarTitle = styled.h2`
     white-space: nowrap;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ isBorder: boolean }>`
     width: 375px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    border-bottom: ${(props) => (props.isBorder ? "1px solid #F1F3F4" : null)};
 `;
 
 export const DiviceInfoContainer = styled.div<{ isVisible: boolean }>`
