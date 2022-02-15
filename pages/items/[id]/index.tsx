@@ -2,9 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import {
-  ItemDetail, ItemOption,
-} from "shared/const";
+import { ItemDetail, ItemOption } from "shared/const";
 import { GetServerSideProps } from "next";
 import ProductIntro from "components/ProductIntro";
 import Appbar from "components/Appbar";
@@ -128,8 +126,8 @@ const ItemsBody = styled.div`
 `;
 
 type Props = {
-    item: ItemDetail
-}
+  item: ItemDetail;
+};
 
 const Item: React.FC<Props> = ({ item }) => {
   const router = useRouter();
@@ -138,6 +136,7 @@ const Item: React.FC<Props> = ({ item }) => {
   const {
     name, warning, conCategory2, options, discountRate,
   } = item;
+  const { name, warning, conCategory2, options, discountRate } = item;
   const { conCategory1 } = conCategory2;
   const { info } = conCategory1;
 
@@ -149,18 +148,19 @@ const Item: React.FC<Props> = ({ item }) => {
     setSelected(null);
     setOnBottom(!onBottom);
   };
-  const createData = (str: string) : string => {
+  const createData = (str: string): string => {
     const temp = str.substring(0, 10);
     const result = temp.split("-").join(".");
     return result;
   };
-  const createComma = (price: number) : string => {
+  const createComma = (price: number): string => {
     const txt = String(price);
     const result = `${txt.slice(0, 1)},${txt.slice(1, 4)}원`;
     return result;
   };
   const handleBuying = () => {
     if (selected || onBottom) {
+      // eslint-disable-next-line no-alert
       alert("현재는 구매할수 없습니다.");
     } else {
       getBottomSheet();

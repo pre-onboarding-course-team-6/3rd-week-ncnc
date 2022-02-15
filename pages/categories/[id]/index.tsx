@@ -59,14 +59,16 @@ const CurrentMenu = styled.button`
 `;
 
 type Props = {
-    categories: ICategory[],
-    categoryInfos: CategoryInfo[],
-}
+  categories: ICategory[];
+  categoryInfos: CategoryInfo[];
+};
 
 const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
   const router = useRouter();
   const { id } = router.query;
-  const currentCategory = categories.find((element) => element.id === Number(id));
+  const currentCategory = categories.find(
+    (element) => element.id === Number(id)
+  );
 
   return (
 	<div>
@@ -109,7 +111,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const response = await axios(`${API_URL}`);
   const responseTwo = await axios(DETAIL_URL);
   const { conCategory1s } = response.data;
-  const { conCategory1: { conCategory2s } } = responseTwo.data;
+  const {
+    conCategory1: { conCategory2s },
+  } = responseTwo.data;
   return {
     props: {
       categories: conCategory1s,

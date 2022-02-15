@@ -81,11 +81,11 @@ const P = styled.p`
 `;
 
 type Props = {
-  buy: FAQType[],
-  sell: FAQType[]
-}
+  buy: FAQType[];
+  sell: FAQType[];
+};
 
-const Contacts:React.FC<Props> = (props) => {
+const Contacts: React.FC<Props> = (props) => {
   const router = useRouter();
   const [tabSelected, setTabSelected] = useState("buy");
   const [faqSelected, setFaqSeleted] = useState(null);
