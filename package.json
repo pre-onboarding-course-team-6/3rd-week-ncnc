@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "build": "next build %% next export",
+    "build": "next build && next export",
     "start": "next start",
     "cypress": "cypress open"
   },
