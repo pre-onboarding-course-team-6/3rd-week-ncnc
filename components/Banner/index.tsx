@@ -35,10 +35,10 @@ const Banner = () => {
 			<S.Point onClick={onClick} value={2} state={state} />
 			<S.Point onClick={onClick} value={3} state={state} />
 		</S.ListBox>
-		<S.MoveArrow style={{ right: "10px" }} onClick={Next}>
+		<S.MoveArrow style={{ right: "10px" }} onClick={() => Next}>
 			<ChevronRight />
 		</S.MoveArrow>
-		<S.MoveArrow style={{ left: "10px" }} onClick={Prev}>
+		<S.MoveArrow style={{ left: "10px" }} onClick={() => Prev}>
 			<ChevronLeft />
 		</S.MoveArrow>
 	</S.Wrapper>
