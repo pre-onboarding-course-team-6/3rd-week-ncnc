@@ -9,8 +9,9 @@ import {
 
 type Props = {
     title: string
+    isBorder: boolean
 }
-const Appbar: React.FC<Props> = ({ title }) => {
+const Appbar: React.FC<Props> = ({ title, isBorder }) => {
   const isDeviceInfo = true;
   const router = useRouter();
   const { id } = router.query;
@@ -19,7 +20,7 @@ const Appbar: React.FC<Props> = ({ title }) => {
   return (
 	<AppbarContainer>
 		<DiviceInfoContainer isVisible={isDeviceInfo} />
-		<Container>
+		<Container isBorder={isBorder}>
 			<AppbarTitle>
 				{title}
 			</AppbarTitle>
