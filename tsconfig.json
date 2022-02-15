@@ -19,6 +19,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "rootDir": ".",
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
@@ -28,9 +29,10 @@
     "custom.d.ts",
     "styles",
     "pages",
-    "public", "cypress/integration/app.spec.js",
+    "public",
+    "cypress/integration/app.spec.js"
   ],
   "exclude": [
-    "node_modules",
+    "node_modules"
   ]
 }
