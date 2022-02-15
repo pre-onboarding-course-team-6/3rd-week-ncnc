@@ -1,15 +1,11 @@
 /* eslint-disable max-len */
 /* eslint-disable react/no-array-index-key */
 import React from "react";
-import { ProductProps } from "shared/const";
+import { ProductProps } from "shared/type";
 import ProductIntro from "../ProductIntro";
 import * as S from "./styled";
 
-type Props = {
-  lists: ProductProps[]
-}
-
-const ProductList: React.FC<Props> = ({ lists }) => (
+const ProductList: React.FC<{lists: ProductProps[]}> = ({ lists }) => (
 	<section>
 		<S.Introduce>
 			<S.RedText>
