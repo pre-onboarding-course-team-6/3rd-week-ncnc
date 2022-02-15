@@ -113,3 +113,7 @@ export const SelectedWrapper = styled.div`
 export const ItemsBody = styled.div`
     min-height: 700px;
 `;
+
+export const IconImg = styled.img`
+    
+`;

@@ -41,13 +41,14 @@ const Item: React.FC<Props> = ({ item }) => {
   };
   return (
 	<S.ItemsContainer>
-		<Appbar isBorder title="" />
+		<Appbar iconName="ChevronLeftIcon" isBorder={true} title="" menuOnClick={() => {}} />
 		<ProductIntro
 			id={item.id}
 			imageUrl={item.imageUrl}
 			name={name}
 			originalPrice={item.originalPrice}
 			minSellingPrice={item.minSellingPrice}
+			conCategory2={conCategory2}
 		/>
 		<S.ItemsBody>
 			<S.TextBox>
@@ -67,7 +68,7 @@ const Item: React.FC<Props> = ({ item }) => {
 				<S.IconButton
 					onClick={() => getBottomSheet()}
 				>
-					수정
+					<S.IconImg src="https://ncnc.app/static/img/edit.png" alt="" />
 				</S.IconButton>
 			</S.SelectedBox>
 		</S.SelectedWrapper>

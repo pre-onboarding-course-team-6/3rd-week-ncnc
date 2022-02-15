@@ -16,7 +16,7 @@ const Brand: React.FC<Props> = ({ title, items }) => {
   const isBorder = true;
   return (
 	<>
-		<Appbar isBorder={isBorder} title={title} />
+		<Appbar iconName="ChevronLeftIcon" isBorder={isBorder} title={title} menuOnClick={() => {}} />
 		<BrandTopContainer>
 			{items && items.length}
 			{" "}
