@@ -1,5 +1,5 @@
 import React from "react";
-import * as SolidIcons from "@heroicons/react/solid";
+import * as OutlineIcons from "@heroicons/react/outline";
 import * as S from "./style";
 
 type Props = {
@@ -11,14 +11,14 @@ type Props = {
 const Appbar: React.FC<Props> = ({
   title, isBorder, iconName, menuOnClick,
 }) => {
-  const { ...icons } = SolidIcons;
+  const { ...icons } = OutlineIcons;
   const Icon: JSX.Element = icons[iconName];
   return (
 	<S.AppbarContainer>
 		<S.Container isBorder={isBorder}>
 			{iconName && (
 			<S.MenuButton onClick={menuOnClick}>
-				<Icon style={{ width: "17.4px" }} />
+				<Icon style={{ width: "18px" }} />
 			</S.MenuButton>
 			)}
 			<S.AppbarTitle>

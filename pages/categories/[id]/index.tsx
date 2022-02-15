@@ -26,7 +26,7 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
   const currentCategory = categories.find((element) => element.id === Number(id));
   return (
 	<>
-		<Appbar iconName="ChevronLeftIcon" isBorder={false} title={currentCategory.name} menuOnClick={() => {}} />
+		<Appbar iconName="ChevronLeftIcon" isBorder={false} title={currentCategory.name} menuOnClick={() => { router.push("/"); }} />
 		<HorizontalBox>
 			{categories.map(((category, index) => (
 				<Link key={index} href={`${category.id}`}>

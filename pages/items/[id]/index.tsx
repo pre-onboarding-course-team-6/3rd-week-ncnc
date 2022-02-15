@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 import {
   ItemDetail, ItemOption,
 } from "shared/const";
@@ -13,6 +14,7 @@ type Props = {
 }
 
 const Item: React.FC<Props> = ({ item }) => {
+  const router = useRouter();
   const [selected, setSelected] = useState(null);
   const [onBottom, setOnBottom] = useState(false);
   const {
@@ -41,7 +43,7 @@ const Item: React.FC<Props> = ({ item }) => {
   };
   return (
 	<S.ItemsContainer>
-		<Appbar iconName="ChevronLeftIcon" isBorder={true} title="" menuOnClick={() => {}} />
+		<Appbar iconName="ChevronLeftIcon" isBorder={true} title="" menuOnClick={() => router.back()} />
 		<ProductIntro
 			id={item.id}
 			imageUrl={item.imageUrl}

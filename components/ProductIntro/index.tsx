@@ -11,7 +11,6 @@ const ProductIntro: React.FC<ProductIntroProps> = (props) => {
   function numAddComma(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-  console.log(conCategory2);
 
   return (
 	<Link href={`/items/${id}`}>

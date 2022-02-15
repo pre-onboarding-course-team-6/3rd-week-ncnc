@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const AppbarContainer = styled.div`
-    min-height: 93px;
     width: 100%;
+    background-color: #FFFFFF;
 `;
 export const AppbarTitle = styled.h2`
     font-size: 15px;

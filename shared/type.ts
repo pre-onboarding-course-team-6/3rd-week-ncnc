@@ -106,3 +106,9 @@ export interface ItemOption {
   count: number
   sellingPrice: number
 }
+  
+export interface FAQType {
+  id: number
+  question: string
+  answer: string
+}

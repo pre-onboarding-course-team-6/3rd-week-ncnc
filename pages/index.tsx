@@ -6,12 +6,32 @@ import HomeCategory from "components/HomeCategory";
 import ProductList from "components/ProductList";
 import CompanyContent from "components/CompanyContent";
 import Banner from "components/Banner";
+import axios from "axios";
+import { GetServerSideProps } from "next";
+import styled from "styled-components";
+import { ChevronRightIcon } from "@heroicons/react/outline";
+import Link from "next/link";
+
+const SidebarContainer = styled.div`
+  padding: 10px 0;
+`;
+const MypageBox = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #FFFFFF;
+  justify-content: space-between;
+`;
+
+const BoxTitle = styled.p`
+  font-size: 15px;
+  font-weight: 500;
+`;
 
 const Index = () => {
   const [lists, setLists] = useState<ProductProps[] | null>(null);
   const [category, setCategory] = useState<ConCategory[] | null>(null);
-  const menuIconImg = () => (<svg width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 7.3a.7.7 0 100 1.4V7.3zm16 1.4a.7.7 0 100-1.4v1.4zm-16 0h16V7.3H7v1.4zM7 14.3a.7.7 0 100 1.4v-1.4zm16 1.4a.7.7 0 100-1.4v1.4zm-16 0h16v-1.4H7v1.4zM7 21.3a.7.7 0 100 1.4v-1.4zm16 1.4a.7.7 0 100-1.4v1.4zm-16 0h16v-1.4H7v1.4z" fill="#000" /></svg>);
-
+  const [isClose, setIsClose] = useState<boolean>(true);
   async function GetSoonData() {
     const data = await fetch(SOON_API, { mode: "cors" })
       .then((response) => response.json())
@@ -36,20 +56,46 @@ const Index = () => {
 	    <div>loading</div>
     );
   }
-
-  const menuOnClick = () => {
-    console.log("클릭");
+  const handleSidebar = () => {
+    setIsClose(!isClose);
   };
 
   return (
 	<div>
-		<Appbar title="니콘내콘" isBorder={false} iconName="MenuIcon" menuOnClick={menuOnClick} />
-		<Banner />
-		<HomeCategory category={category} />
-		<ProductList lists={lists} />
-		<CompanyContent />
+		<Appbar title={isClose ? "니콘내콘" : "마이페이지"} isBorder={false} iconName={isClose ? "MenuIcon" : "XIcon"} menuOnClick={handleSidebar} />
+		{isClose ? (
+			<>
+				<Banner />
+				<HomeCategory category={category} />
+				<ProductList lists={lists} />
+				<CompanyContent />
+			</>
+		) : (
+			<SidebarContainer>
+				<MypageBox>
+					<BoxTitle>고객센터</BoxTitle>
+					<Link href="/contacts">
+						<ChevronRightIcon style={{ width: "22px", cursor: "pointer" }} />
+					</Link>
+				</MypageBox>
+			</SidebarContainer>
+		)}
+
 	</div>
   );
 };
 
 export default Index;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const soonResponse = await axios(SOON_API);
+  const categoryResponse = await axios(CON_CATEGORY);
+  const { conItems } = soonResponse.data;
+  const { conCategory1s } = categoryResponse.data;
+  return {
+    props: {
+      lists: conItems,
+      category: conCategory1s,
+    },
+  };
+};
