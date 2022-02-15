@@ -6,6 +6,7 @@ import Appbar from "components/Appbar";
 import ItemTile from "components/ItemTile";
 import { Item } from "shared/const";
 import { BrandTopContainer } from "./style";
+import ProductIntro from "components/ProductIntro";
 
 type Props = {
     title: string
@@ -23,7 +24,7 @@ const Brand: React.FC<Props> = ({ title, items }) => {
 			개의 상품
 		</BrandTopContainer>
 		{items.map((item, index) => (
-			<ItemTile name={item.name} imageUrl={item.imageUrl} id={item.id} />
+			<ProductIntro name={item.name} imageUrl={item.imageUrl} id={item.id} />
 		  ))}
 	</>
   );
