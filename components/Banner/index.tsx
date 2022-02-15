@@ -26,7 +26,7 @@ const Banner = () => {
   }
 
   useEffect(() => {
-    const timer = setTimeout(() => {Next(); console.log("hi")}, 5000);
+    const timer = setTimeout(() => Next(), 5000);
     return () => clearTimeout(timer);
   },[Next, Prev])
 
