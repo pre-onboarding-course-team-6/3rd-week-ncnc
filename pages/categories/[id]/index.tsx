@@ -21,30 +21,34 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
   const currentCategory = categories.find((element) => element.id === Number(id));
 
   return (
-	<>
+	<div>
 		<Appbar iconName="ChevronLeftIcon" isBorder={false} title={currentCategory.name} menuOnClick={() => { router.push("/"); }} />
-		<HorizontalBox>
-			{categories.map(((category, index) => (
-				<Link key={index} href={`${category.id}`}>
-					<BoxItem>
-						{category.name}
-					</BoxItem>
-				</Link>
-			)))}
-		</HorizontalBox>
-		<CategoryBody>
-			<CategoryInfoList>
-				{categoryInfos.map((info, index) => (
-					<CategoryTile
-						key={index}
-						profileImgUrl={info.imageUrl}
-						name={info.name}
-						id={info.id}
-					/>
-				))}
-			</CategoryInfoList>
-		</CategoryBody>
-	</>
+		<S.Wrapper>
+			<S.Section>
+				<S.FlexBox>
+					<S.MenuWrapper>
+						{categories.map(((category, index) => {
+				  const { name } = category;
+				  const categoryId = category.id;
+				  return (
+					<Link key={index} href={`${categoryId}`}>
+						{categoryId === Number(id) ? (
+							<S.CurrentMenu>
+								{name}
+							</S.CurrentMenu>
+						) : (
+							<S.Menu>{name}</S.Menu>
+						)}
+					</Link>
+				  );
+						}))}
+					</S.MenuWrapper>
+				</S.FlexBox>
+			</S.Section>
+			<div style={{ marginTop: "40px" }} />
+			<HomeCategory category={categoryInfos} address="brands" />
+		</S.Wrapper>
+	</div>
   );
 };
 
