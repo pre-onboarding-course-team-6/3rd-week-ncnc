@@ -5,6 +5,7 @@ import { GetServerSideProps } from "next";
 import Appbar from "components/Appbar";
 import { Item } from "shared/const";
 import ProductIntro from "components/ProductIntro";
+import { useRouter } from "next/router";
 import { BrandTopContainer } from "./style";
 
 type Props = {
@@ -14,9 +15,10 @@ type Props = {
 
 const Brand: React.FC<Props> = ({ title, items }) => {
   const isBorder = true;
+  const router = useRouter();
   return (
 	<>
-		<Appbar isBorder={isBorder} title={title} />
+		<Appbar iconName="ChevronLeftIcon" isBorder={isBorder} title={title} menuOnClick={() => { router.back(); }} />
 		<BrandTopContainer>
 			{items && items.length}
 			{" "}

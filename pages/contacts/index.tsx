@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { GetStaticProps } from "next";
+import { useRouter } from "next/router";
 import { FAQ, KAKAO_CHANNEL } from "shared/constant";
 import { FAQType } from "shared/type";
 import Link from "next/link";
@@ -16,6 +17,7 @@ type Props = {
 }
 
 const Contacts:React.FC<Props> = (props) => {
+  const router = useRouter();
   const [tabSelected, setTabSelected] = useState("buy");
   const [faqSelected, setFaqSeleted] = useState(null);
 
@@ -35,7 +37,7 @@ const Contacts:React.FC<Props> = (props) => {
 
   return (
 	<>
-		<Appbar title="" isBorder={false} />
+		<Appbar title="고객센터" isBorder={false} iconName="XIcon" menuOnClick={() => router.push("/")} />
 		<S.Section>
 			<div style={{ fontSize: "18px", marginBottom: "10px" }}>상담시간 안내</div>
 			<div style={{ fontSize: "16px", marginBottom: "2px" }}>평일 10:00 ~ 18:00</div>

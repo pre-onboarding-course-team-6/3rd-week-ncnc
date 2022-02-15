@@ -1,30 +1,31 @@
 import React from "react";
-import { useRouter } from "next/router";
-import {
-  AppbarContainer,
-  AppbarTitle,
-  DiviceInfoContainer,
-  Container,
-} from "./style";
+import * as OutlineIcons from "@heroicons/react/outline";
+import * as S from "./style";
 
 type Props = {
     title: string
     isBorder: boolean
+    iconName: string
+    menuOnClick: Function
 }
-const Appbar: React.FC<Props> = ({ title, isBorder }) => {
-  const isDeviceInfo = true;
-  const router = useRouter();
-  const { id } = router.query;
-
+const Appbar: React.FC<Props> = ({
+  title, isBorder, iconName, menuOnClick,
+}) => {
+  const { ...icons } = OutlineIcons;
+  const Icon: JSX.Element = icons[iconName];
   return (
-	<AppbarContainer>
-		<DiviceInfoContainer isVisible={isDeviceInfo} />
-		<Container isBorder={isBorder}>
-			<AppbarTitle>
+	<S.AppbarContainer>
+		<S.Container isBorder={isBorder}>
+			{iconName && (
+			<S.MenuButton onClick={menuOnClick}>
+				<Icon style={{ width: "18px" }} />
+			</S.MenuButton>
+			)}
+			<S.AppbarTitle>
 				{title}
-			</AppbarTitle>
-		</Container>
-	</AppbarContainer>
+			</S.AppbarTitle>
+		</S.Container>
+	</S.AppbarContainer>
   );
 };
 

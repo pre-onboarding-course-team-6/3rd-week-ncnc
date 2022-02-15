@@ -13,6 +13,7 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.5",
     "@next/bundle-analyzer": "^10.0.7",
     "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.12.0",
