@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Section = styled.section`
+  padding: 20px 0 20px 20px;
+  display: flex;
+`;
+
 export const Introduce = styled.div`
   display: flex;
   padding-left: 20px;

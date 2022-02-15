@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ProductProps, ConCategory } from "shared/type";
 import { SOON_API, CON_CATEGORY } from "shared/constant";
 import Appbar from "components/Appbar";
+import HomeCategory from "components/HomeCategory";
 import ProductList from "components/ProductList";
 import CompanyContent from "components/CompanyContent";
 
@@ -28,17 +29,16 @@ const Index = () => {
     GetSoonData();
   }, []);
 
-  if (lists === null) {
+  if (lists === null || category === null) {
     return (
 	    <div>loading</div>
     );
   }
 
-  console.log(category);
-
   return (
 	<div>
 		<Appbar title="니콘내콘" />
+		<HomeCategory category={category} />
 		<ProductList lists={lists} />
 		<CompanyContent />
 	</div>
