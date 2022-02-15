@@ -7,6 +7,7 @@ import { GetServerSideProps } from "next";
 import ProductIntro from "components/ProductIntro";
 import Appbar from "components/Appbar";
 import { PencilIcon } from "shared/icons";
+import Head from "next/head";
 import styled, { css } from "styled-components";
 
 const TextBox = styled.p`
@@ -32,11 +33,6 @@ const OptionBox = styled.div<{ isVisible: boolean }>`
     display: ${(props) => (props.isVisible ? "inline" : "none")};
     height: 200px;
     
-`;
-
-const ItemsContainer = styled.div`
-    postion: relative;
-    min-height: 100vh;
 `;
 
 const IconButton = styled.button`
@@ -164,7 +160,13 @@ const Item: React.FC<Props> = ({ item }) => {
     }
   };
   return (
-	<ItemsContainer>
+	<>
+    <Head>
+        <meta property="og:title" content={`더블엔씨 과제${name}상세정보`} />
+        <meta property="og:description" content={`더블엔씨 과제${name}상세정보`} />
+        <meta name="description" content={`더블엔씨 과제${name}상세정보`} />
+        <meta name="keywords" content="와퍼주니어세트 버거킹" />
+    </Head>
 		<Appbar iconName="BackIcon" isBorder title="" menuOnClick={() => router.back()} />
 		<ProductIntro
 			id={item.id}
@@ -227,7 +229,7 @@ const Item: React.FC<Props> = ({ item }) => {
 		>
 			{selected || onBottom ? "구매하기" : "옵션선택하기" }
 		</BuyingButton>
-	</ItemsContainer>
+	</>
   );
 };
 

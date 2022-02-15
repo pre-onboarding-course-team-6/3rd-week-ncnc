@@ -1,11 +1,12 @@
 /* eslint-disable react/no-array-index-key */
-import axios from "axios";
 import React from "react";
+import axios from "axios";
 import { GetServerSideProps } from "next";
-import Appbar from "components/Appbar";
-import { Item } from "shared/const";
-import ProductIntro from "components/ProductIntro";
 import { useRouter } from "next/router";
+import Head from "next/head";
+import Appbar from "components/Appbar";
+import ProductIntro from "components/ProductIntro";
+import { Item } from "shared/const";
 import styled from "styled-components";
 
 const BrandTopContainer = styled.div`
@@ -26,6 +27,12 @@ const Brand: React.FC<Props> = ({ title, items }) => {
   const router = useRouter();
   return (
     <>
+      <Head>
+          <meta property="og:title" content={`더블엔씨 과제 ${title} 브랜드 페이지`} />
+          <meta property="og:description" content={`더블엔씨 과제 ${title} 브랜드 페이지`} />
+          <meta name="description" content={`더블엔씨 과제 ${title} 브랜드 페이지`} />
+          <meta name="keywords" content={title} />
+      </Head>
       <Appbar
         iconName="ChevronLeftIcon"
         isBorder={isBorder}

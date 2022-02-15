@@ -9,6 +9,7 @@ import { FAQType } from "shared/type";
 import Link from "next/link";
 import Appbar from "components/Appbar";
 import styled from "styled-components";
+import Head from "next/head";
 import { ChevronDown } from "../../shared/icons";
 
 const Section = styled.section`
@@ -106,6 +107,12 @@ const Contacts: React.FC<Props> = (props) => {
 
   return (
 	<>
+    <Head>
+      <meta property="og:title" content="더블엔씨 과제 고객센터" />
+      <meta property="og:description" content="더블엔씨 과제 고객센터" />
+      <meta name="description" content="더블엔씨 과제 고객센터" />
+      <meta name="keywords" content="더블엔씨 과제 고객센터" />
+    </Head>
 		<Appbar title="고객센터" isBorder={false} iconName="XIcon" menuOnClick={() => router.push("/")} />
 		<Section>
 			<div style={{ fontSize: "18px", marginBottom: "10px" }}>상담시간 안내</div>

@@ -9,8 +9,9 @@ import { theme } from "../styles/theme";
 const MyApp = ({ Component, pageProps }: AppProps) => (
 	<>
 		<Head>
+			<link rel="icon" href="/favicon.ico" />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<title>boilerplate</title>
+			<title>더블엔씨 과제</title>
 		</Head>
 		<GlobalStyle />
 		<ThemeProvider theme={theme}>
