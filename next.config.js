@@ -3,7 +3,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 module.exports = withBundleAnalyzer({
-  webpack5: false,
   target: "serverless",
   env: {
     BASE_URL: process.env.BASE_URL,
