@@ -36,32 +36,15 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
-        <Head>
-          <meta charSet="utf-8" />
-          <meta property="og:title" content="" />
-          <meta property="og:image" content="" />
-          <meta property="og:description" content="" />
-          <meta property="og:url" content="//" />
-          <meta name="description" content="" />
-          <meta name="keywords" content="" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link rel="icon" href="/static/favicon.ico" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap"
-            rel="preload"
-            as="style"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
+	<Html lang="ko">
+		<Head>
+      <meta charSet="utf-8" />
+		</Head>
+		<body>
+			<Main />
+			<NextScript />
+		</body>
+	</Html>
     );
   }
 }

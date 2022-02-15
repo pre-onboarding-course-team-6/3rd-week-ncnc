@@ -7,6 +7,7 @@ import { GetServerSideProps } from "next";
 import ProductIntro from "components/ProductIntro";
 import Appbar from "components/Appbar";
 import { PencilIcon } from "shared/icons";
+import Head from "next/head";
 import styled, { css } from "styled-components";
 
 const TextBox = styled.p`
@@ -33,11 +34,6 @@ const OptionBox = styled.div<{ isVisible: boolean }>`
   max-width: 672px;
   display: ${(props) => (props.isVisible ? "inline" : "none")};
   height: 200px;
-`;
-
-const ItemsContainer = styled.div`
-  postion: relative;
-  min-height: 100vh;
 `;
 
 const IconButton = styled.button``;
@@ -164,65 +160,76 @@ const Item: React.FC<Props> = ({ item }) => {
     }
   };
   return (
-    <ItemsContainer>
-      <Appbar
-        iconName="BackIcon"
-        isBorder
-        title=""
-        menuOnClick={() => router.back()}
-      />
-      <ProductIntro
-        id={item.id}
-        imageUrl={item.imageUrl}
-        name={name}
-        originalPrice={item.originalPrice}
-        minSellingPrice={item.minSellingPrice}
-        conCategory2={conCategory2}
-      />
-      <ItemsBody>
-        <TextBox>tip</TextBox>
-        <TextBox>{warning}</TextBox>
-        <TextBox>{info}</TextBox>
-      </ItemsBody>
-      {selected && (
-        <SelectedWrapper>
-          <SelectedBox>
-            {`${createData(selected.expireAt)} 까지 / ${createComma(
-              selected.sellingPrice
-            )}`}
-            <IconButton onClick={() => getBottomSheet()}>
-              <PencilIcon />
-            </IconButton>
-          </SelectedBox>
-        </SelectedWrapper>
-      )}
-      <OptionBox isVisible={!selected && onBottom}>
-        <OptionBoxTitle>옵션선택하기</OptionBoxTitle>
-        <OptionBoxWrapper>
-          {options.map((option, index) => (
-            <OptionBoxBody key={index} onClick={() => handleOption(option)}>
-              <InfoWrapper>
-                <OptionInfo>
-                  <InfoTitle>유효기간</InfoTitle>
-                  <InfoDetail>{createData(option.expireAt)}</InfoDetail>
-                </OptionInfo>
-                <OptionInfo>
-                  <InfoTitle>할인가</InfoTitle>
-                  <InfoDetail>{createComma(option.sellingPrice)}</InfoDetail>
-                </OptionInfo>
-              </InfoWrapper>
-              <DiscountRate>{discountRate}%</DiscountRate>
-            </OptionBoxBody>
-          ))}
-        </OptionBoxWrapper>
-      </OptionBox>
-      <BuyingButton
-        disabled={!selected && onBottom}
-        onClick={() => handleBuying()}
-      >
-        {selected || onBottom ? "구매하기" : "옵션선택하기"}
-      </BuyingButton>
-    </ItemsContainer>
+	<>
+    <Head>
+        <meta property="og:title" content={`더블엔씨 과제${name}상세정보`} />
+        <meta property="og:description" content={`더블엔씨 과제${name}상세정보`} />
+        <meta name="description" content={`더블엔씨 과제${name}상세정보`} />
+        <meta name="keywords" content="와퍼주니어세트 버거킹" />
+    </Head>
+		<Appbar iconName="BackIcon" isBorder title="" menuOnClick={() => router.back()} />
+		<ProductIntro
+			id={item.id}
+			imageUrl={item.imageUrl}
+			name={name}
+			originalPrice={item.originalPrice}
+			minSellingPrice={item.minSellingPrice}
+			conCategory2={conCategory2}
+		/>
+		<ItemsBody>
+			<TextBox>
+				tip
+			</TextBox>
+			<TextBox>
+				{warning}
+			</TextBox>
+			<TextBox>
+				{info}
+			</TextBox>
+		</ItemsBody>
+		{selected && (
+		<SelectedWrapper>
+			<SelectedBox>
+				{`${createData(selected.expireAt)} 까지 / ${createComma(selected.sellingPrice)}`}
+				<IconButton
+					onClick={() => getBottomSheet()}
+				>
+					<PencilIcon />
+				</IconButton>
+			</SelectedBox>
+		</SelectedWrapper>
+		)}
+		<OptionBox isVisible={!selected && onBottom}>
+			<OptionBoxTitle>옵션선택하기</OptionBoxTitle>
+			<OptionBoxWrapper>
+				{options.map((option, index) => (
+					<OptionBoxBody key={index} onClick={() => handleOption(option)}>
+						<InfoWrapper>
+							<OptionInfo>
+								<InfoTitle>유효기간</InfoTitle>
+								<InfoDetail>{createData(option.expireAt)}</InfoDetail>
+							</OptionInfo>
+							<OptionInfo>
+								<InfoTitle>할인가</InfoTitle>
+								<InfoDetail>{createComma(option.sellingPrice)}</InfoDetail>
+							</OptionInfo>
+						</InfoWrapper>
+						<DiscountRate>
+							{discountRate}
+							%
+						</DiscountRate>
+
+					</OptionBoxBody>
+				))}
+			</OptionBoxWrapper>
+		</OptionBox>
+		<BuyingButton
+			disabled={!selected && onBottom}
+			onClick={() => handleBuying()}
+		>
+			{selected || onBottom ? "구매하기" : "옵션선택하기" }
+		</BuyingButton>
+	</>
   );
 };
 

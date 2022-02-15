@@ -1,13 +1,14 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
 import Appbar from "components/Appbar";
-import axios from "axios";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { ICategory, CategoryInfo } from "shared/const";
 import HomeCategory from "components/HomeCategory";
 import styled from "styled-components";
+import Head from "next/head";
 
 const Wrapper = styled.div`
   display: flex;
@@ -69,41 +70,43 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
   const currentCategory = categories.find(
     (element) => element.id === Number(id)
   );
+	const currentCategoryName = currentCategory.name;
 
   return (
-    <div>
-      <Appbar
-        iconName="BackIcon"
-        isBorder={false}
-        title={currentCategory.name}
-        menuOnClick={() => {
-          router.back();
-        }}
-      />
-      <Wrapper>
-        <Section>
-          <FlexBox>
-            <MenuWrapper>
-              {categories.map((category, index) => {
-                const { name } = category;
-                const categoryId = category.id;
-                return (
-                  <Link key={index} href={`${categoryId}`}>
-                    {categoryId === Number(id) ? (
-                      <CurrentMenu>{name}</CurrentMenu>
-                    ) : (
-                      <Menu>{name}</Menu>
-                    )}
-                  </Link>
-                );
-              })}
-            </MenuWrapper>
-          </FlexBox>
-        </Section>
-        <div style={{ marginTop: "40px" }} />
-        <HomeCategory category={categoryInfos} address="brands" />
-      </Wrapper>
-    </div>
+	<>
+		<Head>
+      <meta property="og:title" content={`더블엔씨 과제 ${currentCategoryName} 카테고리 페이지`} />
+      <meta property="og:description" content={`더블엔씨 과제 ${currentCategoryName} 카테고리 페이지`} />
+      <meta name="description" content={`더블엔씨 과제 ${currentCategoryName} 카테고리 페이지`} />
+      <meta name="keywords" content={currentCategoryName} />
+    </Head>
+		<Appbar iconName="BackIcon" isBorder={false} title={currentCategoryName} menuOnClick={() => { router.back(); }} />
+		<Wrapper>
+			<Section>
+				<FlexBox>
+					<MenuWrapper>
+						{categories.map(((category, index) => {
+				  const { name } = category;
+				  const categoryId = category.id;
+				  return (
+					<Link key={index} href={`${categoryId}`}>
+						{categoryId === Number(id) ? (
+							<CurrentMenu>
+								{name}
+							</CurrentMenu>
+						) : (
+							<Menu>{name}</Menu>
+						)}
+					</Link>
+				  );
+						}))}
+					</MenuWrapper>
+				</FlexBox>
+			</Section>
+			<div style={{ marginTop: "40px" }} />
+			<HomeCategory category={categoryInfos} address="brands" />
+		</Wrapper>
+	</>
   );
 };
 

@@ -10,6 +10,7 @@ import axios from "axios";
 import { GetServerSideProps } from "next";
 import styled from "styled-components";
 import Link from "next/link";
+import Head from "next/head";
 import { ChevronRight } from "../shared/icons";
 
 const SidebarContainer = styled.div`
@@ -62,7 +63,13 @@ const Index = () => {
   };
 
   return (
-	<div>
+	<>
+    <Head>
+        <meta property="og:title" content="더블엔씨 과제 홈화면" />
+        <meta property="og:description" content="더블엔씨 과제 홈화면" />
+        <meta name="description" content="더블엔씨 과제 홈화면" />
+        <meta name="keywords" content="더블엔씨" />
+    </Head>
 		<Appbar title={isClose ? "니콘내콘" : "마이페이지"} isBorder={false} iconName={isClose ? "MenuIcon" : "XIcon"} menuOnClick={handleSidebar} />
 		{isClose ? (
 			<>
@@ -81,7 +88,7 @@ const Index = () => {
 				</Link>
 			</SidebarContainer>
 		)}
-	</div>
+	</>
   );
 };
 
