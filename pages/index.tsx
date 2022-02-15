@@ -21,6 +21,7 @@ const MypageBox = styled.div`
   padding: 20px;
   background-color: #FFFFFF;
   justify-content: space-between;
+  cursor: pointer;
 `;
 
 const BoxTitle = styled.p`
@@ -72,12 +73,12 @@ const Index = () => {
 			</>
 		) : (
 			<SidebarContainer>
-				<MypageBox>
-					<BoxTitle>고객센터</BoxTitle>
-					<Link href="/contacts">
+				<Link href="/contacts">
+					<MypageBox>
+						<BoxTitle>고객센터</BoxTitle>
 						<ChevronRightIcon style={{ width: "22px", cursor: "pointer" }} />
-					</Link>
-				</MypageBox>
+					</MypageBox>
+				</Link>
 			</SidebarContainer>
 		)}
 	</div>
