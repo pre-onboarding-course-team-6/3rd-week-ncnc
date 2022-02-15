@@ -44,7 +44,6 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
 						profileImgUrl={info.imageUrl}
 						name={info.name}
 						id={info.id}
-						categoryId={info.conCategory1Id}
 					/>
 				))}
 			</CategoryInfoList>

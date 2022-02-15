@@ -52,3 +52,11 @@ export interface Item {
   count: number
   imageUrl: string
 }
+
+export interface IBrand {
+  id: number
+  name: string
+  conCategory1Id: number
+  imageUrl: string
+  conItems: Item[]
+}

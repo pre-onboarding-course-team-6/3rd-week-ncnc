@@ -2,13 +2,19 @@ import styled from "styled-components";
 
 export const TileContainer = styled.div`
     background-color: white;
+    width: 112px;
+    height: 94px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const TileBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 112px;
-    height: 94px;
-    border-radius: 5px;
     cursor: pointer;
 `;
 
