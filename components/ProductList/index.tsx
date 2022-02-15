@@ -6,7 +6,7 @@ import ProductIntro from "../ProductIntro";
 import * as S from "./styled";
 
 const ProductList: React.FC<{lists: ProductProps[]}> = ({ lists }) => (
-	<section>
+	<section className="ProductList">
 		<S.Introduce>
 			<S.RedText>
 				놓치지 마세요

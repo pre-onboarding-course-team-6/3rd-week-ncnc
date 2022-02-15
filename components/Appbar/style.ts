@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AppbarContainer = styled.div`
+export const AppbarContainer = styled.nav`
     width: 100%;
     background-color: #FFFFFF;
 `;

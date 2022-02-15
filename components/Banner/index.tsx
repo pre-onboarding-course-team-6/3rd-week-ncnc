@@ -31,7 +31,7 @@ const Banner = () => {
   },[Next, Prev])
 
   return (
-	<S.Wrapper>
+	<S.Wrapper className="Banner">
 		<S.Image src={`/banner${state}.jpg`} alt={`banner${state}`} />
 		<S.ListBox>
 			<S.Point onClick={onClick} value={1} state={state} />
