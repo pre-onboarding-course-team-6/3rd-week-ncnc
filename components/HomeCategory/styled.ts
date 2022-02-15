@@ -12,7 +12,7 @@ export const MainWrapper = styled.div`
 
 export const ContentBoxWrapper = styled.div`
   float: left;
-  width: 33%;
+  width: 33.33%;
   padding: 1px;
   box-sizing: border-box;
   `;
