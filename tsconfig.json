@@ -28,7 +28,7 @@
     "custom.d.ts",
     "styles",
     "pages",
-    "public",
+    "public", "cypress/integration/app.spec.js",
   ],
   "exclude": [
     "node_modules",

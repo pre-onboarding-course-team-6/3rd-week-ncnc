@@ -18,10 +18,10 @@ const Appbar: React.FC<Props> = ({
 }) => {
   const Icon = Icons[iconName];
   return (
-    <S.AppbarContainer>
+    <S.AppbarContainer className="AppBar">
       <S.Container isBorder={isBorder}>
         {iconName && (
-          <S.MenuButton onClick={menuOnClick}>
+          <S.MenuButton onClick={menuOnClick} className={iconName}>
             <Icon />
           </S.MenuButton>
         )}

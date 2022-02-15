@@ -7,7 +7,7 @@ import * as S from "./styled";
 const HomeCategory: React.FC<{
 	category: ConCategory[], address: string
 }> = ({ category, address }) => (
-	<S.Section>
+	<S.Section className="HomeCategory">
 		<S.MainWrapper>
 			{category.map((content, index) => {
 			  const {

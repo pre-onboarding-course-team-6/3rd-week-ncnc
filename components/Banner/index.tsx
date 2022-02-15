@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronRight, ChevronLeft } from "shared/icons";
 import * as S from "./styled";
 
@@ -25,10 +25,13 @@ const Banner = () => {
     }
   }
 
-  setTimeout(() => Next(), 5000);
+  useEffect(() => {
+    const timer = setTimeout(() => {Next(); console.log("hi")}, 5000);
+    return () => clearTimeout(timer);
+  },[Next, Prev])
 
   return (
-	<S.Wrapper>
+	<S.Wrapper className="Banner">
 		<S.Image src={`/banner${state}.jpg`} alt={`banner${state}`} />
 		<S.ListBox>
 			<S.Point onClick={onClick} value={1} state={state} />

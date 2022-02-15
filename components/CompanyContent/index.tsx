@@ -12,14 +12,14 @@ const CompanyContent: React.FC = () => {
   };
 
   return (
-	<S.Section>
+	<S.Section className="CompanyContent">
 		<S.FlexBox>
 			<S.SmallText href="https://ncnc-public.s3.ap-northeast-2.amazonaws.com/doublenc.pdf">{C.COMPANY_INTRODUCE}</S.SmallText>
 			<S.SmallText href="mailto:contact@doublenc.com">{C.COMPANY_CONTACT}</S.SmallText>
 			<S.SmallText href="https://ncnc.io/privacy">{C.PERSONAL_INFO}</S.SmallText>
 			{companyInfo ? (
-				<div>
-					<S.CompanyInfoBtn onClick={onClick}>
+				<div className="moreCompanyInfo">
+					<S.CompanyInfoBtn onClick={onClick} className="moreCompanyInfoClose">
 						{C.COMPANY_NAME}
 						<CompanyChevronUp />
 					</S.CompanyInfoBtn>
@@ -43,7 +43,7 @@ const CompanyContent: React.FC = () => {
 					</S.CompanyInfo>
 				</div>
 			) : (
-				<S.CompanyInfoBtn onClick={onClick}>
+				<S.CompanyInfoBtn onClick={onClick} className="moreCompanyInfoOpen">
 					{C.COMPANY_NAME}
 					<CompanyChevronDown />
 				</S.CompanyInfoBtn>
