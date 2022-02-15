@@ -3,8 +3,8 @@ import axios from "axios";
 import React from "react";
 import { GetServerSideProps } from "next";
 import Appbar from "components/Appbar";
-import ItemTile from "components/ItemTile";
 import { Item } from "shared/const";
+import ProductIntro from "components/ProductIntro";
 import { BrandTopContainer } from "./style";
 
 type Props = {
@@ -23,8 +23,15 @@ const Brand: React.FC<Props> = ({ title, items }) => {
 			개의 상품
 		</BrandTopContainer>
 		{items.map((item, index) => (
-			<ItemTile name={item.name} imageUrl={item.imageUrl} id={item.id} />
-		  ))}
+			<ProductIntro
+				key={index}
+				id={item.id}
+				imageUrl={item.imageUrl}
+				name={item.name}
+				originalPrice={item.originalPrice}
+				minSellingPrice={item.minSellingPrice}
+			/>
+		))}
 	</>
   );
 };

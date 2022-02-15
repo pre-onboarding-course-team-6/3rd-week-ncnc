@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const AppbarContainer = styled.div`
-    padding: 10px;
     text-align: center;
-    height: 93px;
-    width: 375px;
+    min-height: 93px;
+    width: 100%;
 `;
 export const AppbarTitle = styled.h2`
     font-size: 15px;
@@ -19,7 +18,7 @@ export const AppbarTitle = styled.h2`
 `;
 
 export const Container = styled.div<{ isBorder: boolean }>`
-    width: 375px;
+    width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -29,7 +28,7 @@ export const Container = styled.div<{ isBorder: boolean }>`
 `;
 
 export const DiviceInfoContainer = styled.div<{ isVisible: boolean }>`
-    width: 375px;
+    width: 100%;
     height: 44px;
     display: ${(props) => (props.isVisible ? "flex" : "hidden")};
 `;

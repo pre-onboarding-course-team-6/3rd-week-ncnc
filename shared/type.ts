@@ -44,6 +44,7 @@ export interface CategoryInfo {
   conItems: Item[]
 }
 
+// brand page type
 export interface Item {
   id: number
   name: string
@@ -59,8 +60,55 @@ export interface ConCategory {
   imageUrl: string
 }
 
+// 상품상세페이지 타입
+export interface ItemDetail {
+  id: number
+  name: string
+  originalPrice: number
+  minSellingPrice: number
+  ncSellingPrice: number
+  information: string
+  tip: any
+  warning: string
+  discountRate: number
+  info: any
+  isOnlyAccount: number
+  conCategory2Id: number
+  imageUrl: string
+  conCategory2: BrandDetail
+  options: ItemOption[]
+}
+
+export interface BrandDetail {
+  id: number
+  name: string
+  adminUserId: number
+  priority: number
+  createdAt: string
+  conCategory1Id: number
+  info: string
+  imageUrl: string
+  conCategory1: CategoryDetail
+}
+
+export interface CategoryDetail {
+  id: number
+  name: string
+  createdAt: string
+  priority: number
+  discountRate: number
+  info: string
+  imageUrl: string
+}
+
+export interface ItemOption {
+  expireAt: string
+  count: number
+  sellingPrice: number
+}
+  
 export interface FAQType {
-  id: number,
-  question: string,
+  id: number
+  question: string
   answer: string
 }
