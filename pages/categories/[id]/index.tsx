@@ -37,7 +37,7 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
 										{name}
 									</S.CurrentMenu>
 								) : (
-									<S.BoxItem>{name}</S.BoxItem>
+									<S.Menu>{name}</S.Menu>
 								)}
 							</Link>
 						  );

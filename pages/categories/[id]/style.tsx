@@ -33,16 +33,6 @@ export const MenuWrapper = styled.div`
 export const Menu = styled.button`
     padding: 10px 14px;
     height: 41px;
-    box-shadow: none!important;
-    cursor: pointer;
-    border: none;
-    background-color: #fff;
-    color: #333;
-`;
-
-export const BoxItem = styled.button`
-    padding: 10px 14px;
-    height: 41px;
     cursor: pointer;
     border: none;
     background-color: #fff;
@@ -54,8 +44,7 @@ export const CurrentMenu = styled.button`
     color: #f75656;
     font-size: 16px;
     border-bottom: 2px solid #f75656;
-    padding: 10px 14px 9px 14px;
-    box-shadow: none!important;
+    padding: 10px 14px 8px 14px;
     cursor: pointer;
     background-color: #fff;
 `;
