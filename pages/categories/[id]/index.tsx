@@ -1,4 +1,3 @@
-/* eslint-disable no-redeclare */
 /* eslint-disable react/no-array-index-key */
 import React from "react";
 import { useRouter } from "next/router";
@@ -8,7 +7,56 @@ import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { ICategory, CategoryInfo } from "shared/const";
 import HomeCategory from "components/HomeCategory";
-import * as S from "./style";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+`;
+
+const Section = styled.section`
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+`;
+
+const FlexBox = styled.div`
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    height: 41px;
+    background-color: #fff;
+    font-size: 16px;
+`;
+
+const MenuWrapper = styled.div`
+    border-bottom: 1px solid #ccc;
+    padding: 0px 10px;
+`;
+
+const Menu = styled.button`
+    padding: 10px 14px;
+    height: 41px;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+`;
+
+const CurrentMenu = styled.button`
+    color: #f75656;
+    font-size: 16px;
+    border-bottom: 2px solid #f75656;
+    padding: 10px 14px 8px 14px;
+    cursor: pointer;
+    background-color: #fff;
+`;
 
 type Props = {
   categories: ICategory[];
@@ -23,35 +71,34 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
   );
 
   return (
-    <>
-      <Appbar
-        iconName="ChevronLeftIcon"
-        isBorder={false}
-        title={currentCategory.name}
-        menuOnClick={() => {
-          router.push("/");
-        }}
-      />
-      <S.HorizontalBox>
-        {categories.map((category, index) => (
-          <Link key={index} href={`${category.id}`}>
-            <BoxItem>{category.name}</BoxItem>
-          </Link>
-        ))}
-      </S.HorizontalBox>
-      <CategoryBody>
-        <CategoryInfoList>
-          {categoryInfos.map((info, index) => (
-            <CategoryTile
-              key={index}
-              profileImgUrl={info.imageUrl}
-              name={info.name}
-              id={info.id}
-            />
-          ))}
-        </CategoryInfoList>
-      </CategoryBody>
-    </>
+	<div>
+		<Appbar iconName="BackIcon" isBorder={false} title={currentCategory.name} menuOnClick={() => { router.back(); }} />
+		<Wrapper>
+			<Section>
+				<FlexBox>
+					<MenuWrapper>
+						{categories.map(((category, index) => {
+				  const { name } = category;
+				  const categoryId = category.id;
+				  return (
+					<Link key={index} href={`${categoryId}`}>
+						{categoryId === Number(id) ? (
+							<CurrentMenu>
+								{name}
+							</CurrentMenu>
+						) : (
+							<Menu>{name}</Menu>
+						)}
+					</Link>
+				  );
+						}))}
+					</MenuWrapper>
+				</FlexBox>
+			</Section>
+			<div style={{ marginTop: "40px" }} />
+			<HomeCategory category={categoryInfos} address="brands" />
+		</Wrapper>
+	</div>
   );
 };
 
