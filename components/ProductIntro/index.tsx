@@ -1,5 +1,6 @@
 import React from "react";
 import { ProductIntroProps } from "shared/type";
+import Link from "next/link";
 import * as S from "./styled";
 
 const ProductIntro: React.FC<ProductIntroProps> = (props) => {
@@ -13,11 +14,11 @@ const ProductIntro: React.FC<ProductIntroProps> = (props) => {
   console.log(conCategory2);
 
   return (
-	<S.Link href={`/items/${id}`}>
+	<Link href={`/items/${id}`}>
 		<S.ProductWrapper>
 			<S.ProductImage src={imageUrl} alt={`${name}사진`} />
 			<S.TextWrapper>
-				{conCategory2 && <S.BrandName>ConCategory2.name</S.BrandName>}
+				{conCategory2 && <S.BrandName>{conCategory2.name}</S.BrandName>}
 				<S.ProductName>
 					{name}
 				</S.ProductName>
@@ -37,7 +38,7 @@ const ProductIntro: React.FC<ProductIntroProps> = (props) => {
 				</S.PriceWrapper>
 			</S.TextWrapper>
 		</S.ProductWrapper>
-	</S.Link>
+	</Link>
   );
 };
 

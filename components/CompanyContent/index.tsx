@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as C from "shared/constant";
+import Link from "next/link";
 import * as S from "./styled";
 
 const CompanyContent: React.FC = () => {
@@ -25,7 +26,9 @@ const CompanyContent: React.FC = () => {
 						대표 : 박진희
 						<span> | </span>
 						이메일 :
-						<S.EmailLink href="mailto:cs@doublenc.com" target="_blank" rel="noreferrer">cs@doublenc.com</S.EmailLink>
+						<Link href="mailto:cs@doublenc.com">
+							<S.EmailLink target="_blank" rel="noreferrer">cs@doublenc.com</S.EmailLink>
+						</Link>
 						<br />
 						사업자 등록번호 : 290-86-00970
 						<span> | </span>

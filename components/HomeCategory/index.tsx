@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
 import { ConCategory } from "shared/type";
+import Link from "next/link";
 import * as S from "./styled";
 
 const HomeCategory: React.FC<{category: ConCategory[]}> = ({ category }) => (
@@ -16,12 +17,14 @@ const HomeCategory: React.FC<{category: ConCategory[]}> = ({ category }) => (
 	  return (
 		<S.ContentBoxWrapper key={index}>
 			<S.ContentBox>
-				<S.Link href={`/categories/${id}`}>
-					<S.Image src={imageUrl} alt={`${name}아이콘`} />
-					<S.Title>
-						{content.name}
-					</S.Title>
-				</S.Link>
+				<Link href={`/categories/${id}`}>
+					<S.Link>
+						<S.Image src={imageUrl} alt={`${name}아이콘`} />
+						<S.Title>
+							{content.name}
+						</S.Title>
+					</S.Link>
+				</Link>
 			</S.ContentBox>
 		</S.ContentBoxWrapper>
 	  );

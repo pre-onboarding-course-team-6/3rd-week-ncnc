@@ -1,14 +1,10 @@
 import styled from "styled-components";
 
-export const Link = styled.a`
-  text-decoration: none;
-  color: #000000;
-`;
-
 export const ProductWrapper = styled.div`
   display: flex;
   border-bottom: 1px solid #efefef;
   background-color: #ffffff;
+  cursor: pointer;
 `;
 
 export const ProductImage = styled.img`
