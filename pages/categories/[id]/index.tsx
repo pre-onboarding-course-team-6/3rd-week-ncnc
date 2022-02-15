@@ -82,7 +82,7 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
     </Head>
 		<Appbar iconName="BackIcon" isBorder={false} title={currentCategoryName} menuOnClick={() => { router.back(); }} />
 		<Wrapper>
-			<Section>
+			<Section className="CategoryMenu">
 				<FlexBox>
 					<MenuWrapper>
 						{categories.map(((category, index) => {
@@ -103,7 +103,6 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
 					</MenuWrapper>
 				</FlexBox>
 			</Section>
-			<div style={{ marginTop: "40px" }} />
 			<HomeCategory category={categoryInfos} address="brands" />
 		</Wrapper>
 	</>
