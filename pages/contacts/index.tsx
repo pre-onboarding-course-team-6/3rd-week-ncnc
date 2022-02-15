@@ -10,6 +10,7 @@ import { FAQType } from "shared/type";
 import Link from "next/link";
 import Appbar from "components/Appbar";
 import * as S from "./styled";
+import { ChevronDown } from "../../shared/icons";
 
 type Props = {
   buy: FAQType[],
@@ -63,9 +64,7 @@ const Contacts:React.FC<Props> = (props) => {
 					<S.Ask onClick={onFaqClick} value={index}>
 						<S.Q>Q</S.Q>
 						<S.Question>{question}</S.Question>
-						<span>
-							<svg data-v-52e7c3af="" width="16" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" className="self-center"><path data-v-52e7c3af="" d="M1.354.646a.5.5 0 10-.708.708l.708-.708zM8 8l-.354.354a.5.5 0 00.708 0L8 8zm7.354-6.646a.5.5 0 00-.708-.708l.708.708zm-14.708 0l7 7 .708-.708-7-7-.708.708zm7.708 7l7-7-.708-.708-7 7 .708.708z" fill="gray" /></svg>
-						</span>
+						<ChevronDown />
 					</S.Ask>
 					{index === faqSelected && (
 					<S.AnswerWrapper>

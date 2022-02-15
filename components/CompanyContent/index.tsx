@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as C from "shared/constant";
 import Link from "next/link";
+import { CompanyChevronDown, CompanyChevronUp } from "shared/icons";
 import * as S from "./styled";
 
 const CompanyContent: React.FC = () => {
@@ -20,7 +21,7 @@ const CompanyContent: React.FC = () => {
 				<div>
 					<S.CompanyInfoBtn onClick={onClick}>
 						{C.COMPANY_NAME}
-						<S.Svg style={{ transform: "rotate(180deg)" }}><path d="M1 1l6 6 6-6" stroke="#000" strokeLinecap="round" strokeLinejoin="round" /></S.Svg>
+						<CompanyChevronUp />
 					</S.CompanyInfoBtn>
 					<S.CompanyInfo>
 						대표 : 박진희
@@ -44,7 +45,7 @@ const CompanyContent: React.FC = () => {
 			) : (
 				<S.CompanyInfoBtn onClick={onClick}>
 					{C.COMPANY_NAME}
-					<S.Svg><path d="M1 1l6 6 6-6" stroke="#000" strokeLinejoin="round" /></S.Svg>
+					<CompanyChevronDown />
 				</S.CompanyInfoBtn>
 			)}
 		</S.FlexBox>

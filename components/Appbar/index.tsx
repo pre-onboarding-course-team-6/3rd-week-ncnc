@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import React from "react";
-import * as OutlineIcons from "@heroicons/react/outline";
+import * as Icons from "shared/icons";
 import * as S from "./style";
 
 type Props = {
@@ -12,14 +12,13 @@ type Props = {
 const Appbar: React.FC<Props> = ({
   title, isBorder, iconName, menuOnClick,
 }) => {
-  const { ...icons } = OutlineIcons;
-  const Icon: JSX.Element = icons[iconName];
+  const Icon = Icons[iconName];
   return (
 	<S.AppbarContainer>
 		<S.Container isBorder={isBorder}>
 			{iconName && (
 			<S.MenuButton onClick={menuOnClick}>
-				<Icon style={{ width: "18px" }} />
+				<Icon />
 			</S.MenuButton>
 			)}
 			<S.AppbarTitle>
