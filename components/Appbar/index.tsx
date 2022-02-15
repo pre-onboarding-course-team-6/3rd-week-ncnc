@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from "react";
 import * as OutlineIcons from "@heroicons/react/outline";
 import * as S from "./style";

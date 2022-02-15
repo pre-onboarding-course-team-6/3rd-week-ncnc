@@ -66,7 +66,7 @@ const Index = () => {
 		{isClose ? (
 			<>
 				<Banner />
-				<HomeCategory category={category} />
+				<HomeCategory category={category} address="categories" />
 				<ProductList lists={lists} />
 				<CompanyContent />
 			</>
