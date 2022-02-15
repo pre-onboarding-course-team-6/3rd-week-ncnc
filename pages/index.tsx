@@ -1,23 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { ProductProps } from "shared/type";
+import { ProductProps, ConCategory } from "shared/type";
+import { SOON_API, CON_CATEGORY } from "shared/constant";
 import Appbar from "components/Appbar";
+import HomeCategory from "components/HomeCategory";
 import ProductList from "components/ProductList";
 import CompanyContent from "components/CompanyContent";
 
 const Index = () => {
   const [lists, setLists] = useState<ProductProps[] | null>(null);
-  async function GetJsonData(address: string) {
-    const data = await fetch(address, { mode: "cors" })
+  const [category, setCategory] = useState<ConCategory[] | null>(null);
+
+  async function GetSoonData() {
+    const data = await fetch(SOON_API, { mode: "cors" })
       .then((response) => response.json())
       .then((myJson) => myJson);
     setLists(data.conItems);
   }
 
+  async function GetConCategory() {
+    const data = await fetch(CON_CATEGORY, { mode: "cors" })
+      .then((response) => response.json())
+      .then((myJson) => myJson);
+    setCategory(data.conCategory1s);
+  }
+
   useEffect(() => {
-    GetJsonData("https://api2.ncnc.app/con-items/soon");
+    GetConCategory();
+    GetSoonData();
   }, []);
 
-  if (lists === null) {
+  if (lists === null || category === null) {
     return (
 	    <div>loading</div>
     );
@@ -26,6 +38,7 @@ const Index = () => {
   return (
 	<div>
 		<Appbar title="니콘내콘" />
+		<HomeCategory category={category} />
 		<ProductList lists={lists} />
 		<CompanyContent />
 	</div>
