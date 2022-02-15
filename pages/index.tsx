@@ -9,8 +9,8 @@ import Banner from "components/Banner";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import styled from "styled-components";
-import { ChevronRightIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import { ChevronRight } from "../shared/icons";
 
 const SidebarContainer = styled.div`
   padding: 10px 0;
@@ -76,7 +76,7 @@ const Index = () => {
 				<Link href="/contacts">
 					<MypageBox>
 						<BoxTitle>고객센터</BoxTitle>
-						<ChevronRightIcon style={{ width: "22px", cursor: "pointer" }} />
+						<ChevronRight />
 					</MypageBox>
 				</Link>
 			</SidebarContainer>

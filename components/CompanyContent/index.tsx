@@ -28,7 +28,7 @@ const CompanyContent: React.FC = () => {
 						<span> | </span>
 						이메일 :
 						<Link href="mailto:cs@doublenc.com">
-							<S.EmailLink target="_blank" rel="noreferrer">cs@doublenc.com</S.EmailLink>
+							<S.EmailLink href="mailto:cs@doublenc.com" target="_blank" rel="noreferrer">cs@doublenc.com</S.EmailLink>
 						</Link>
 						<br />
 						사업자 등록번호 : 290-86-00970

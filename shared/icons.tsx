@@ -18,6 +18,18 @@ export const ChevronDown = () => (
 	</svg>
 );
 
+export const ChevronRight = () => (
+	<svg data-v-a4cd0984="" width="19" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path data-v-a4cd0984="" d="M9.515 18.485L18 10 9.515 1.515" stroke="gray" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+	</svg>
+);
+
+export const ChevronLeft = () => (
+	<svg data-v-a4cd0984="" width="19" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: "rotate(180deg)", marginLeft: "4px" }}>
+		<path data-v-a4cd0984="" d="M9.515 18.485L18 10 9.515 1.515" stroke="gray" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+	</svg>
+);
+
 export const HomeIcon = () => (
 	<svg data-v-77763046="" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path data-v-77763046="" d="M3.461 11.884L15 4.615l11.538 7.27M23.077 12.692v11.539H6.923V12.692" stroke="#000" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
