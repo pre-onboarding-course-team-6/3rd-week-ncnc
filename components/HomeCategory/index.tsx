@@ -8,7 +8,6 @@ const HomeCategory: React.FC<{category: ConCategory[]}> = ({ category }) => (
 	<S.Section>
 		<S.MainWrapper>
 			{category.map((content, index) => {
-	  console.log(content);
 			  const {
 			    id,
 			    name,
