@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from "react";
 import axios from "axios";
@@ -10,8 +12,15 @@ import { PencilIcon } from "shared/icons";
 import Head from "next/head";
 import styled, { css } from "styled-components";
 
+const TitleBox = styled.p`
+  margin: 10px 0;
+  font-size: 14px;
+`;
+
 const TextBox = styled.p`
-  white-space: pre-wrap;
+  color: #999;
+  font-size: 14px;
+  line-height: 1.5;
 `;
 
 const BuyingButton = styled.button`
@@ -119,6 +128,7 @@ const SelectedWrapper = styled.div`
 const ItemsBody = styled.div`
   min-height: 700px;
   background-color: #ffffff;
+  padding: 20px 20px 0;
 `;
 
 type Props = {
@@ -132,6 +142,7 @@ const Item: React.FC<Props> = ({ item }) => {
   const { name, warning, conCategory2, options, discountRate } = item;
   const { conCategory1 } = conCategory2;
   const { info } = conCategory1;
+  const warnnigArray = warning.split("\n")
 
   const handleOption = (option: ItemOption) => {
     setSelected(option);
@@ -165,7 +176,7 @@ const Item: React.FC<Props> = ({ item }) => {
         <meta property="og:title" content={`더블엔씨 과제${name}상세정보`} />
         <meta property="og:description" content={`더블엔씨 과제${name}상세정보`} />
         <meta name="description" content={`더블엔씨 과제${name}상세정보`} />
-        <meta name="keywords" content="와퍼주니어세트 버거킹" />
+        <meta name="keywords" content={name} />
     </Head>
 		<Appbar iconName="BackIcon" isBorder title="" menuOnClick={() => router.back()} />
 		<ProductIntro
@@ -177,12 +188,14 @@ const Item: React.FC<Props> = ({ item }) => {
 			conCategory2={conCategory2}
 		/>
 		<ItemsBody>
-			<TextBox>
-				tip
-			</TextBox>
-			<TextBox>
-				{warning}
-			</TextBox>
+      {warnnigArray && warnnigArray.map(word => {
+        if(word[0]=== "["){
+          const ref =word.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi, "");
+          return(<TitleBox>{ref}</TitleBox>)
+        } 
+          return(<TextBox>{word}</TextBox>)
+      })}
+      <TitleBox>주의사항</TitleBox>
 			<TextBox>
 				{info}
 			</TextBox>
