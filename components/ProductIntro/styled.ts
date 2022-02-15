@@ -11,7 +11,6 @@ export const ProductImage = styled.img`
   padding: 20px;
   width: 70px;
   height: 70px;
-  border-radius: 8px;
 `;
 
 export const TextWrapper = styled.div`

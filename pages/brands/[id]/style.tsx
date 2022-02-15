@@ -2,5 +2,9 @@
 import styled from "styled-components";
 
 export const BrandTopContainer = styled.div`
-    width: 100%;
+    padding: 10px;
+    display: flex;
+    background-color: #fff;
+    top: 0;
+    border-bottom: 1px solid #F1F3F4;
 `;
