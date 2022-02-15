@@ -7,7 +7,7 @@ import {
 import { GetServerSideProps } from "next";
 import ProductIntro from "components/ProductIntro";
 import Appbar from "components/Appbar";
-import { PencilIcon } from "@heroicons/react/outline";
+import { PencilIcon } from "shared/icons";
 import * as S from "./style";
 
 type Props = {
@@ -51,7 +51,7 @@ const Item: React.FC<Props> = ({ item }) => {
   };
   return (
 	<S.ItemsContainer>
-		<Appbar iconName="HomeIcon" isBorder title="" menuOnClick={() => router.back()} />
+		<Appbar iconName="BackIcon" isBorder title="" menuOnClick={() => router.back()} />
 		<ProductIntro
 			id={item.id}
 			imageUrl={item.imageUrl}
@@ -78,7 +78,7 @@ const Item: React.FC<Props> = ({ item }) => {
 				<S.IconButton
 					onClick={() => getBottomSheet()}
 				>
-					<PencilIcon style={{ width: "20px" }} />
+					<PencilIcon />
 				</S.IconButton>
 			</S.SelectedBox>
 		</S.SelectedWrapper>
