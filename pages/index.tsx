@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ProductProps } from "shared/const";
+import { ProductProps } from "shared/type";
 import Appbar from "components/Appbar";
 import ProductList from "components/ProductList";
 

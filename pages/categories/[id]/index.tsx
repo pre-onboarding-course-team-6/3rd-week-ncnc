@@ -7,7 +7,7 @@ import CategoryTile from "components/CategoryTile";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
-import { ICategory, CategoryInfo } from "shared/const";
+import { ICategory, CategoryInfo } from "shared/type";
 import {
   HorizontalBox,
   BoxItem,
@@ -46,7 +46,7 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
 						id={info.id}
 						categoryId={info.conCategory1Id}
 					/>
-          ))}
+				))}
 			</CategoryInfoList>
 		</CategoryBody>
 	</>
