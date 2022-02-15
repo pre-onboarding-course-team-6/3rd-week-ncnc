@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/destructuring-assignment */
 import React, { useState } from "react";
@@ -74,7 +75,6 @@ const Contacts:React.FC<Props> = (props) => {
 				</S.FaqWrapper>
 			  );
 			})}
-
 		</S.Section>
 	</>
   );

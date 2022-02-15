@@ -4,7 +4,9 @@ import { ConCategory } from "shared/type";
 import Link from "next/link";
 import * as S from "./styled";
 
-const HomeCategory: React.FC<{category: ConCategory[]}> = ({ category }) => (
+const HomeCategory: React.FC<{
+	category: ConCategory[], address: string
+}> = ({ category, address }) => (
 	<S.Section>
 		<S.MainWrapper>
 			{category.map((content, index) => {
@@ -16,7 +18,7 @@ const HomeCategory: React.FC<{category: ConCategory[]}> = ({ category }) => (
 	  return (
 		<S.ContentBoxWrapper key={index}>
 			<S.ContentBox>
-				<Link href={`/categories/${id}`}>
+				<Link href={`/${address}/${id}`}>
 					<S.Link>
 						<S.Image src={imageUrl} alt={`${name}아이콘`} />
 						<S.Title>

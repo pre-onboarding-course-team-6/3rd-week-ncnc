@@ -80,7 +80,6 @@ const Index = () => {
 				</MypageBox>
 			</SidebarContainer>
 		)}
-
 	</div>
   );
 };

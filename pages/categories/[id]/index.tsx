@@ -3,17 +3,12 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Appbar from "components/Appbar";
-import CategoryTile from "components/CategoryTile";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { ICategory, CategoryInfo } from "shared/const";
-import {
-  HorizontalBox,
-  BoxItem,
-  CategoryInfoList,
-  CategoryBody,
-} from "./style";
+import HomeCategory from "components/HomeCategory";
+import * as S from "./style";
 
 type Props = {
     categories: ICategory[],
@@ -24,6 +19,7 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
   const router = useRouter();
   const { id } = router.query;
   const currentCategory = categories.find((element) => element.id === Number(id));
+
   return (
 	<>
 		<Appbar iconName="ChevronLeftIcon" isBorder={false} title={currentCategory.name} menuOnClick={() => { router.push("/"); }} />
