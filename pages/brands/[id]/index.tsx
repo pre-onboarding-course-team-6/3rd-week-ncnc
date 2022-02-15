@@ -10,11 +10,11 @@ import { Item } from "shared/const";
 import styled from "styled-components";
 
 const BrandTopContainer = styled.div`
-    padding: 10px;
-    display: flex;
-    background-color: #fff;
-    top: 0;
-    border-bottom: 1px solid #F1F3F4;
+  padding: 10px;
+  display: flex;
+  background-color: #fff;
+  top: 0;
+  border-bottom: 1px solid #f1f3f4;
 `;
 
 type Props = {
@@ -34,7 +34,7 @@ const Brand: React.FC<Props> = ({ title, items }) => {
           <meta name="keywords" content={title} />
       </Head>
       <Appbar
-        iconName="ChevronLeftIcon"
+        iconName="ChevronLeft"
         isBorder={isBorder}
         title={title}
         menuOnClick={() => {
