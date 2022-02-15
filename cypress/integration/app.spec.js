@@ -93,20 +93,41 @@ describe("Cypress E2E test start", () => {
   //     cy.url().should("include", "/brands/");
   //   });
   // });
-
-  describe("Brand page render test", () => {
+  // describe("Brand page render test", () => {
+  //   beforeEach(() => {
+  //     cy.visit("/brands/63");
+  //   });
+  //   it("Brand page AppBar test", () => {
+  //     cy.visit("http://localhost:3000/categories/67");
+  //     cy.contains("스타벅스").click();
+  //     cy.url().should("have.eq", "http://localhost:3000/brands/63");
+  //     cy.get(".AppBar").contains("스타벅스");
+  //     cy.get(".AppBar > div > button").should("have.class", "BackIcon").click();
+  //   });
+  //   it("Brand page render test", () => {
+  //     cy.get(".ProductList").should("be.visible");
+  //   });
+  // });
+  describe("Item page render test", () => {
     beforeEach(() => {
-      cy.visit("/brands/63");
+      cy.visit("/items/137");
     });
     it("Brand page AppBar test", () => {
-      cy.visit("http://localhost:3000/categories/67");
-      cy.contains("스타벅스").click();
-      cy.url().should("have.eq", "http://localhost:3000/brands/63");
-      cy.get(".AppBar").contains("스타벅스");
+      cy.visit("/brands/63");
+      cy.get(".ProductList  > div:first").click();
+      cy.url().should("have.eq", "http://localhost:3000/items/137");
       cy.get(".AppBar > div > button").should("have.class", "BackIcon").click();
+      cy.url().should("have.eq", "http://localhost:3000/brands/63");
     });
     it("Brand page render test", () => {
-      cy.get(".ProductList").should("be.visible");
+      cy.contains("스타벅스");
+      cy.contains("카페아메리카노 T");
+      cy.contains("3,600");
+      cy.get(".SelectOption").click();
+      cy.get(".OptionSelectBox > div:first").click();
+      cy.get(".cancelBtn").click();
+      cy.get(".OptionSelectBox > div:first").click();
+      cy.contains("구매하기").click();
     });
   });
 });

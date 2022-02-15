@@ -192,6 +192,7 @@ const Item: React.FC<Props> = ({ item }) => {
 			<SelectedBox>
 				{`${createData(selected.expireAt)} 까지 / ${createComma(selected.sellingPrice)}`}
 				<IconButton
+          className="cancelBtn"
 					onClick={() => getBottomSheet()}
 				>
 					<PencilIcon />
@@ -201,7 +202,7 @@ const Item: React.FC<Props> = ({ item }) => {
 		)}
 		<OptionBox isVisible={!selected && onBottom}>
 			<OptionBoxTitle>옵션선택하기</OptionBoxTitle>
-			<OptionBoxWrapper>
+			<OptionBoxWrapper className="OptionSelectBox">
 				{options.map((option, index) => (
 					<OptionBoxBody key={index} onClick={() => handleOption(option)}>
 						<InfoWrapper>
@@ -225,6 +226,7 @@ const Item: React.FC<Props> = ({ item }) => {
 		</OptionBox>
 		<BuyingButton
 			disabled={!selected && onBottom}
+      className="SelectOption"
 			onClick={() => handleBuying()}
 		>
 			{selected || onBottom ? "구매하기" : "옵션선택하기" }
