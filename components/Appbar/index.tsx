@@ -7,7 +7,7 @@ type Props = {
     title: string
     isBorder: boolean
     iconName: string
-    menuOnClick: Function
+    menuOnClick: () => void;
 }
 const Appbar: React.FC<Props> = ({
   title, isBorder, iconName, menuOnClick,
