@@ -4,13 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "debug": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
+    "build": "next build %% next export",
     "start": "next start",
-    "export": "next export",
-    "type-check": "tsc",
-    "eslint": "eslint .",
-    "analyze": "ANALYZE=true next build",
     "cypress": "cypress open"
   },
   "dependencies": {
