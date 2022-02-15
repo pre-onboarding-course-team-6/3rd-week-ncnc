@@ -18,7 +18,7 @@ const Index: React.FC<Props> = ({ lists, category }) => (
 	<div>
 		<Appbar title="니콘내콘" isBorder />
 		<Banner />
-		<HomeCategory category={category} />
+		<HomeCategory category={category} address="categories" />
 		<ProductList lists={lists} />
 		<CompanyContent />
 	</div>
