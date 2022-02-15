@@ -119,11 +119,11 @@ const Contacts: React.FC<Props> = (props) => {
 			<div style={{ fontSize: "16px", marginBottom: "2px" }}>평일 10:00 ~ 18:00</div>
 			<div style={{ fontSize: "16px", color: "rgb(128,128,128)" }}>점심시간 12:30 ~ 13:30 / 토·일·공휴일 휴무</div>
 			<Link href={KAKAO_CHANNEL}>
-				<Kakao href={KAKAO_CHANNEL}>1:1 카카오톡 문의</Kakao>
+				<Kakao className="kakaoChannel" href={KAKAO_CHANNEL}>1:1 카카오톡 문의</Kakao>
 			</Link>
 		</Section>
 		<div style={{ height: "10px" }} />
-		<Section style={{ paddingBottom: 0 }}>
+		<Section  className="FAQBox" style={{ paddingBottom: 0 }}>
 			<div style={{ fontSize: "18px", marginBottom: "15px" }}>자주 묻는 질문</div>
 			<TabWrapper>
 				<Tab onClick={onTabClick} value="buy" isTabSelected={tabSelected}>구매</Tab>
@@ -131,7 +131,7 @@ const Contacts: React.FC<Props> = (props) => {
 			</TabWrapper>
 		</Section>
 		<div style={{ height: "10px" }} />
-		<Section style={{ padding: 0 }}>
+		<Section className="FAQList" style={{ padding: 0 }}>
 			{props[tabSelected].map((faq, index) => {
 			  const { id, question, answer } = faq;
 			  return (
