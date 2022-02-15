@@ -19,7 +19,7 @@ const Brand: React.FC<Props> = ({ title, items }) => {
   const router = useRouter();
   return (
 	<>
-		<Appbar iconName="HomeIcon" isBorder={isBorder} title={title} menuOnClick={() => { router.back(); }} />
+		<Appbar iconName="BackIcon" isBorder={isBorder} title={title} menuOnClick={() => { router.back(); }} />
 		<BrandTopContainer>
 			{items && items.length}
 			개의 상품

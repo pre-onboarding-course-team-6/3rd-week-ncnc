@@ -22,7 +22,7 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
 
   return (
 	<div>
-		<Appbar iconName="HomeIcon" isBorder={false} title={currentCategory.name} menuOnClick={() => { router.push("/"); }} />
+		<Appbar iconName="BackIcon" isBorder={false} title={currentCategory.name} menuOnClick={() => { router.back(); }} />
 		<S.Wrapper>
 			<S.Section>
 				<S.FlexBox>
