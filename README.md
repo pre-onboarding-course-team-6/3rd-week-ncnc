@@ -2,14 +2,12 @@
 
 <h1 align="middle">[과제] ncnc</h1>
 
-니콘내콘 클론코딩
-
-[니콘내콘](https://ncnc.app/categories/67)
+니콘내콘 클론코딩 [니콘내콘](https://ncnc.app/categories/67)
 <br/>
 
 # 🔗 배포
 
-배포예정
+[과제 배포](https://eloquent-hopper-416b1b.netlify.app/)
 
 <!--
 [![Netlify Status](https://api.netlify.com/api/v1/badges/{appid}/deploy-status)](https://app.netlify.com/sites/{address}/deploys) -->
