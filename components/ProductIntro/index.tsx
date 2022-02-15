@@ -2,26 +2,22 @@ import React from "react";
 import { ProductIntroProps } from "shared/type";
 import * as S from "./styled";
 
-type Props = ProductIntroProps;
-
-const ProductIntro: React.FC<Props> = (props) => {
+const ProductIntro: React.FC<ProductIntroProps> = (props) => {
   const {
     imageUrl, name, originalPrice, minSellingPrice, conCategory2, id,
   } = props;
-  const brandName = conCategory2.name;
   const discountRate = (((originalPrice - minSellingPrice) / originalPrice) * 100).toFixed(0);
   function numAddComma(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+  console.log(conCategory2);
 
   return (
 	<S.Link href={`/items/${id}`}>
 		<S.ProductWrapper>
 			<S.ProductImage src={imageUrl} alt={`${name}사진`} />
 			<S.TextWrapper>
-				<S.BrandName>
-					{brandName}
-				</S.BrandName>
+				{conCategory2 && <S.BrandName>ConCategory2.name</S.BrandName>}
 				<S.ProductName>
 					{name}
 				</S.ProductName>
