@@ -104,6 +104,7 @@ export const SelectedBox = styled.div`
 `;
 
 export const SelectedWrapper = styled.div`
+    background-color: #FFFFFF;
     border-top: 1px solid #F1F3F4;
     width: 100%;
     padding: 17px 0px;
@@ -112,8 +113,9 @@ export const SelectedWrapper = styled.div`
 
 export const ItemsBody = styled.div`
     min-height: 700px;
+    background-color: #FFFFFF;
 `;
 
 export const IconImg = styled.img`
-    
+
 `;

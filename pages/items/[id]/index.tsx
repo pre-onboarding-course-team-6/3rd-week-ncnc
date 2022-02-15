@@ -7,6 +7,7 @@ import {
 import { GetServerSideProps } from "next";
 import ProductIntro from "components/ProductIntro";
 import Appbar from "components/Appbar";
+import { PencilIcon } from "@heroicons/react/outline";
 import * as S from "./style";
 
 type Props = {
@@ -41,9 +42,16 @@ const Item: React.FC<Props> = ({ item }) => {
     const result = `${txt.slice(0, 1)},${txt.slice(1, 4)}원`;
     return result;
   };
+  const handleBuying = () => {
+    if (selected || onBottom) {
+      alert("현재는 구매할수 없습니다.");
+    } else {
+      getBottomSheet();
+    }
+  };
   return (
 	<S.ItemsContainer>
-		<Appbar iconName="ChevronLeftIcon" isBorder={true} title="" menuOnClick={() => router.back()} />
+		<Appbar iconName="ChevronLeftIcon" isBorder title="" menuOnClick={() => router.back()} />
 		<ProductIntro
 			id={item.id}
 			imageUrl={item.imageUrl}
@@ -70,7 +78,7 @@ const Item: React.FC<Props> = ({ item }) => {
 				<S.IconButton
 					onClick={() => getBottomSheet()}
 				>
-					<S.IconImg src="https://ncnc.app/static/img/edit.png" alt="" />
+					<PencilIcon style={{ width: "20px" }} />
 				</S.IconButton>
 			</S.SelectedBox>
 		</S.SelectedWrapper>
@@ -101,7 +109,7 @@ const Item: React.FC<Props> = ({ item }) => {
 		</S.OptionBox>
 		<S.BuyingButton
 			disabled={!selected && onBottom}
-			onClick={() => getBottomSheet()}
+			onClick={() => handleBuying()}
 		>
 			{selected || onBottom ? "구매하기" : "옵션선택하기" }
 		</S.BuyingButton>
