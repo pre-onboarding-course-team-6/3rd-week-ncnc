@@ -3,7 +3,6 @@
 import React from "react";
 import { ProductProps } from "shared/type";
 import ProductIntro from "../ProductIntro";
-import CompanyContent from "../CompanyContent";
 import * as S from "./styled";
 
 type Props = {
@@ -36,7 +35,6 @@ const ProductList: React.FC<Props> = ({ lists }) => (
 			/>
 		  );
 		})}
-		<CompanyContent />
 	</section>
 );
 
