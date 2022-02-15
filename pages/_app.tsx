@@ -7,18 +7,18 @@ import GlobalStyle from "../styles/global-style";
 import { theme } from "../styles/theme";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
-	<>
-		<Head>
-			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<title>boilerplate</title>
-		</Head>
-		<GlobalStyle />
-		<ThemeProvider theme={theme}>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
-		</ThemeProvider>
-	</>
+  <>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>니콘내콘</title>
+    </Head>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
+  </>
 );
 
 export default MyApp;

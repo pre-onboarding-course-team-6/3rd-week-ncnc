@@ -10,55 +10,55 @@ import { PencilIcon } from "shared/icons";
 import styled, { css } from "styled-components";
 
 const TextBox = styled.p`
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 `;
 
 const BuyingButton = styled.button`
-    max-width: 672px;
-    width:100%;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 500;
-    background: #FF5757;
-    height: 80px;
-    ${(props) => props.disabled && css`
-     background: #CCCCCC;
-  `}
+  max-width: 672px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  background: #ff5757;
+  height: 80px;
+  ${(props) =>
+    props.disabled &&
+    css`
+      background: #cccccc;
+    `}
 `;
 
 const OptionBox = styled.div<{ isVisible: boolean }>`
-    width: 100%;
-    max-width: 672px;
-    display: ${(props) => (props.isVisible ? "inline" : "none")};
-    height: 200px;
-    
+  width: 100%;
+  max-width: 672px;
+  display: ${(props) => (props.isVisible ? "inline" : "none")};
+  height: 200px;
 `;
 
 const ItemsContainer = styled.div`
-    postion: relative;
-    min-height: 100vh;
+  postion: relative;
+  min-height: 100vh;
 `;
 
-const IconButton = styled.button`
-
-`;
+const IconButton = styled.button``;
 
 const OptionBoxTitle = styled.h4`
-    background-color: #F1F3F4;
-    padding: 16px;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 17px;
+  background-color: #f1f3f4;
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
 `;
 
 const OptionBoxBody = styled.div`
-    padding: 5px;
-    display:flex;
-    align-items: center;
-    height: 60px;
-    max-width: 672px;
-    cursor: pointer;
-    border-bottom: 1px solid #F1F3F4;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  max-width: 672px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f3f4;
+  background-color: #ffffff;
 `;
 
 const DiscountRate = styled.p`
@@ -69,60 +69,60 @@ const DiscountRate = styled.p`
 `;
 
 const OptionInfo = styled.div`
-    width:100%;
-    padding: 0px 17px;
-    display: flex;
+  width: 100%;
+  padding: 0px 17px;
+  display: flex;
 `;
 
 const InfoTitle = styled.p`
-    width: 44px;
-    font-size: 12px;
-    font-weight: 400;
-    color: #808080;
-    display: flex;
-    align-items: center;
+  width: 44px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #808080;
+  display: flex;
+  align-items: center;
 `;
 
 const InfoWrapper = styled.div`
-    width: 100%;
+  width: 100%;
 `;
 
 const InfoDetail = styled.span`
-    font-size: 16px;
-    font-weight: 400;
-    color: #000000;
-    margin-left: 9px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  margin-left: 9px;
 `;
 
 const OptionBoxWrapper = styled.div`
-    overflow: scroll;
-    height: 183px;
+  overflow: scroll;
+  height: 183px;
 `;
 
 const SelectedBox = styled.div`
-    margin: 0px 17px;
-    display: flex;
-    background-color: #F1F3F4;
-    height: 30px;
-    border-radius: 5px;
-    padding: 8px 17px;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 14px;
-    font-weight: 500;
+  margin: 0px 17px;
+  display: flex;
+  background-color: #f1f3f4;
+  height: 30px;
+  border-radius: 5px;
+  padding: 8px 17px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 const SelectedWrapper = styled.div`
-    background-color: #FFFFFF;
-    border-top: 1px solid #F1F3F4;
-    width: 100%;
-    padding: 17px 0px;
-    max-width: 672px;
+  background-color: #ffffff;
+  border-top: 1px solid #f1f3f4;
+  width: 100%;
+  padding: 17px 0px;
+  max-width: 672px;
 `;
 
 const ItemsBody = styled.div`
-    min-height: 700px;
-    background-color: #FFFFFF;
+  min-height: 700px;
+  background-color: #ffffff;
 `;
 
 type Props = {
@@ -133,9 +133,6 @@ const Item: React.FC<Props> = ({ item }) => {
   const router = useRouter();
   const [selected, setSelected] = useState(null);
   const [onBottom, setOnBottom] = useState(false);
-  const {
-    name, warning, conCategory2, options, discountRate,
-  } = item;
   const { name, warning, conCategory2, options, discountRate } = item;
   const { conCategory1 } = conCategory2;
   const { info } = conCategory1;
@@ -167,70 +164,65 @@ const Item: React.FC<Props> = ({ item }) => {
     }
   };
   return (
-	<ItemsContainer>
-		<Appbar iconName="BackIcon" isBorder title="" menuOnClick={() => router.back()} />
-		<ProductIntro
-			id={item.id}
-			imageUrl={item.imageUrl}
-			name={name}
-			originalPrice={item.originalPrice}
-			minSellingPrice={item.minSellingPrice}
-			conCategory2={conCategory2}
-		/>
-		<ItemsBody>
-			<TextBox>
-				tip
-			</TextBox>
-			<TextBox>
-				{warning}
-			</TextBox>
-			<TextBox>
-				{info}
-			</TextBox>
-		</ItemsBody>
-		{selected && (
-		<SelectedWrapper>
-			<SelectedBox>
-				{`${createData(selected.expireAt)} 까지 / ${createComma(selected.sellingPrice)}`}
-				<IconButton
-					onClick={() => getBottomSheet()}
-				>
-					<PencilIcon />
-				</IconButton>
-			</SelectedBox>
-		</SelectedWrapper>
-		)}
-		<OptionBox isVisible={!selected && onBottom}>
-			<OptionBoxTitle>옵션선택하기</OptionBoxTitle>
-			<OptionBoxWrapper>
-				{options.map((option, index) => (
-					<OptionBoxBody key={index} onClick={() => handleOption(option)}>
-						<InfoWrapper>
-							<OptionInfo>
-								<InfoTitle>유효기간</InfoTitle>
-								<InfoDetail>{createData(option.expireAt)}</InfoDetail>
-							</OptionInfo>
-							<OptionInfo>
-								<InfoTitle>할인가</InfoTitle>
-								<InfoDetail>{createComma(option.sellingPrice)}</InfoDetail>
-							</OptionInfo>
-						</InfoWrapper>
-						<DiscountRate>
-							{discountRate}
-							%
-						</DiscountRate>
-
-					</OptionBoxBody>
-				))}
-			</OptionBoxWrapper>
-		</OptionBox>
-		<BuyingButton
-			disabled={!selected && onBottom}
-			onClick={() => handleBuying()}
-		>
-			{selected || onBottom ? "구매하기" : "옵션선택하기" }
-		</BuyingButton>
-	</ItemsContainer>
+    <ItemsContainer>
+      <Appbar
+        iconName="BackIcon"
+        isBorder
+        title=""
+        menuOnClick={() => router.back()}
+      />
+      <ProductIntro
+        id={item.id}
+        imageUrl={item.imageUrl}
+        name={name}
+        originalPrice={item.originalPrice}
+        minSellingPrice={item.minSellingPrice}
+        conCategory2={conCategory2}
+      />
+      <ItemsBody>
+        <TextBox>tip</TextBox>
+        <TextBox>{warning}</TextBox>
+        <TextBox>{info}</TextBox>
+      </ItemsBody>
+      {selected && (
+        <SelectedWrapper>
+          <SelectedBox>
+            {`${createData(selected.expireAt)} 까지 / ${createComma(
+              selected.sellingPrice
+            )}`}
+            <IconButton onClick={() => getBottomSheet()}>
+              <PencilIcon />
+            </IconButton>
+          </SelectedBox>
+        </SelectedWrapper>
+      )}
+      <OptionBox isVisible={!selected && onBottom}>
+        <OptionBoxTitle>옵션선택하기</OptionBoxTitle>
+        <OptionBoxWrapper>
+          {options.map((option, index) => (
+            <OptionBoxBody key={index} onClick={() => handleOption(option)}>
+              <InfoWrapper>
+                <OptionInfo>
+                  <InfoTitle>유효기간</InfoTitle>
+                  <InfoDetail>{createData(option.expireAt)}</InfoDetail>
+                </OptionInfo>
+                <OptionInfo>
+                  <InfoTitle>할인가</InfoTitle>
+                  <InfoDetail>{createComma(option.sellingPrice)}</InfoDetail>
+                </OptionInfo>
+              </InfoWrapper>
+              <DiscountRate>{discountRate}%</DiscountRate>
+            </OptionBoxBody>
+          ))}
+        </OptionBoxWrapper>
+      </OptionBox>
+      <BuyingButton
+        disabled={!selected && onBottom}
+        onClick={() => handleBuying()}
+      >
+        {selected || onBottom ? "구매하기" : "옵션선택하기"}
+      </BuyingButton>
+    </ItemsContainer>
   );
 };
 

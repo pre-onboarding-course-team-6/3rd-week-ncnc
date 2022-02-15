@@ -10,52 +10,52 @@ import HomeCategory from "components/HomeCategory";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 `;
 
 const Section = styled.section`
-    width: 100%;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
 `;
 
 const FlexBox = styled.div`
-    width: 100%;
-    display: flex;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    height: 41px;
-    background-color: #fff;
-    font-size: 16px;
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  height: 41px;
+  background-color: #fff;
+  font-size: 16px;
 `;
 
 const MenuWrapper = styled.div`
-    border-bottom: 1px solid #ccc;
-    padding: 0px 10px;
+  border-bottom: 1px solid #ccc;
+  padding: 0px 10px;
 `;
 
 const Menu = styled.button`
-    padding: 10px 14px;
-    height: 41px;
-    cursor: pointer;
-    border: none;
-    background-color: #fff;
-    color: #333;
-    font-size: 16px;
+  padding: 10px 14px;
+  height: 41px;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
 `;
 
 const CurrentMenu = styled.button`
-    color: #f75656;
-    font-size: 16px;
-    border-bottom: 2px solid #f75656;
-    padding: 10px 14px 8px 14px;
-    cursor: pointer;
-    background-color: #fff;
+  color: #f75656;
+  font-size: 16px;
+  border-bottom: 2px solid #f75656;
+  padding: 10px 14px 8px 14px;
+  cursor: pointer;
+  background-color: #fff;
 `;
 
 type Props = {
@@ -71,34 +71,39 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
   );
 
   return (
-	<div>
-		<Appbar iconName="BackIcon" isBorder={false} title={currentCategory.name} menuOnClick={() => { router.back(); }} />
-		<Wrapper>
-			<Section>
-				<FlexBox>
-					<MenuWrapper>
-						{categories.map(((category, index) => {
-				  const { name } = category;
-				  const categoryId = category.id;
-				  return (
-					<Link key={index} href={`${categoryId}`}>
-						{categoryId === Number(id) ? (
-							<CurrentMenu>
-								{name}
-							</CurrentMenu>
-						) : (
-							<Menu>{name}</Menu>
-						)}
-					</Link>
-				  );
-						}))}
-					</MenuWrapper>
-				</FlexBox>
-			</Section>
-			<div style={{ marginTop: "40px" }} />
-			<HomeCategory category={categoryInfos} address="brands" />
-		</Wrapper>
-	</div>
+    <div>
+      <Appbar
+        iconName="BackIcon"
+        isBorder={false}
+        title={currentCategory.name}
+        menuOnClick={() => {
+          router.back();
+        }}
+      />
+      <Wrapper>
+        <Section>
+          <FlexBox>
+            <MenuWrapper>
+              {categories.map((category, index) => {
+                const { name } = category;
+                const categoryId = category.id;
+                return (
+                  <Link key={index} href={`${categoryId}`}>
+                    {categoryId === Number(id) ? (
+                      <CurrentMenu>{name}</CurrentMenu>
+                    ) : (
+                      <Menu>{name}</Menu>
+                    )}
+                  </Link>
+                );
+              })}
+            </MenuWrapper>
+          </FlexBox>
+        </Section>
+        <div style={{ marginTop: "40px" }} />
+        <HomeCategory category={categoryInfos} address="brands" />
+      </Wrapper>
+    </div>
   );
 };
 

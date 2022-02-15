@@ -10,6 +10,10 @@ module.exports = withBundleAnalyzer({
   images: {
     domains: ["d1tftw9jjs9bx5.cloudfront.net"],
   },
+  i18n: {
+    locales: ["ko"],
+    defaultLocale: "ko",
+  },
   webpack(conf) {
     conf.module.rules.push({
       test: /\.svg$/,
