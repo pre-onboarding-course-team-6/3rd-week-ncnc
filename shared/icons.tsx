@@ -19,7 +19,13 @@ export const ChevronDown = () => (
 );
 
 export const ChevronRight = () => (
-	<svg data-v-a4cd0984="" width="19" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" className="">
+	<svg data-v-a4cd0984="" width="19" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path data-v-a4cd0984="" d="M9.515 18.485L18 10 9.515 1.515" stroke="gray" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+	</svg>
+);
+
+export const ChevronLeft = () => (
+	<svg data-v-a4cd0984="" width="19" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: "rotate(180deg)", marginLeft: "4px" }}>
 		<path data-v-a4cd0984="" d="M9.515 18.485L18 10 9.515 1.515" stroke="gray" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
 	</svg>
 );
