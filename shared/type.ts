@@ -52,3 +52,9 @@ export interface Item {
   count: number
   imageUrl: string
 }
+
+export interface ConCategory {
+  id: number,
+  name: string,
+  imageUrl: string
+}
