@@ -133,9 +133,6 @@ const Item: React.FC<Props> = ({ item }) => {
   const router = useRouter();
   const [selected, setSelected] = useState(null);
   const [onBottom, setOnBottom] = useState(false);
-  const {
-    name, warning, conCategory2, options, discountRate,
-  } = item;
   const { name, warning, conCategory2, options, discountRate } = item;
   const { conCategory1 } = conCategory2;
   const { info } = conCategory1;
