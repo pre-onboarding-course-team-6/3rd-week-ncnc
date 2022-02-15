@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -5,7 +6,7 @@ import { ItemDetail, ItemOption } from "shared/const";
 import { GetServerSideProps } from "next";
 import ProductIntro from "components/ProductIntro";
 import Appbar from "components/Appbar";
-import { PencilIcon } from "@heroicons/react/outline";
+import { PencilIcon } from "shared/icons";
 import * as S from "./style";
 
 type Props = {

@@ -10,6 +10,7 @@ import { FAQType } from "shared/type";
 import Link from "next/link";
 import Appbar from "components/Appbar";
 import * as S from "./styled";
+import { ChevronDown } from "../../shared/icons";
 
 type Props = {
   buy: FAQType[];

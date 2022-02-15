@@ -9,8 +9,8 @@ import Banner from "components/Banner";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import styled from "styled-components";
-import { ChevronRightIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import { ChevronRight } from "../shared/icons";
 
 const SidebarContainer = styled.div`
   padding: 10px 0;
@@ -21,6 +21,7 @@ const MypageBox = styled.div`
   padding: 20px;
   background-color: #FFFFFF;
   justify-content: space-between;
+  cursor: pointer;
 `;
 
 const BoxTitle = styled.p`
@@ -66,18 +67,18 @@ const Index = () => {
 		{isClose ? (
 			<>
 				<Banner />
-				<HomeCategory category={category} />
+				<HomeCategory category={category} address="categories" />
 				<ProductList lists={lists} />
 				<CompanyContent />
 			</>
 		) : (
 			<SidebarContainer>
-				<MypageBox>
-					<BoxTitle>고객센터</BoxTitle>
-					<Link href="/contacts">
-						<ChevronRightIcon style={{ width: "22px", cursor: "pointer" }} />
-					</Link>
-				</MypageBox>
+				<Link href="/contacts">
+					<MypageBox>
+						<BoxTitle>고객센터</BoxTitle>
+						<ChevronRight />
+					</MypageBox>
+				</Link>
 			</SidebarContainer>
 		)}
 	</div>

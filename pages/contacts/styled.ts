@@ -66,4 +66,5 @@ export const P = styled.p`
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  line-height: 1.3;
 `;
