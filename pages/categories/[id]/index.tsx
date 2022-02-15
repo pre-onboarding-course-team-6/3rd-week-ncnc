@@ -46,7 +46,7 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
 				</S.FlexBox>
 			</S.Section>
 			<div style={{ marginTop: "40px" }} />
-			<HomeCategory category={categoryInfos} />
+			<HomeCategory category={categoryInfos} address="brands" />
 		</S.Wrapper>
 	</div>
   );
