@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Item } from "shared/type";
+import { Item } from "shared/const";
 import React from "react";
 import { GetServerSideProps } from "next";
 

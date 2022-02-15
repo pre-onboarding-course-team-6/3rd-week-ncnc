@@ -7,7 +7,7 @@ import CategoryTile from "components/CategoryTile";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
-import { ICategory, CategoryInfo } from "shared/type";
+import { ICategory, CategoryInfo } from "shared/const";
 import {
   HorizontalBox,
   BoxItem,
