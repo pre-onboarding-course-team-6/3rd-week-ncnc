@@ -32,4 +32,5 @@ export const MoveArrow = styled.div`
   position: absolute;
   top: 40%;
   z-index: 1;
+  cursor: pointer;
 `;

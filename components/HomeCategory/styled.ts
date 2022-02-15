@@ -32,6 +32,7 @@ export const Link = styled.a`
   text-decoration: none;
   color: #000000;
   transition: all 1s ease-in-out;
+  cursor: pointer;
   &: hover{
     zoom: 1.1;
   }
