@@ -5,6 +5,7 @@ import Appbar from "components/Appbar";
 import HomeCategory from "components/HomeCategory";
 import ProductList from "components/ProductList";
 import CompanyContent from "components/CompanyContent";
+import Banner from "components/Banner";
 
 const Index = () => {
   const [lists, setLists] = useState<ProductProps[] | null>(null);
@@ -38,6 +39,7 @@ const Index = () => {
   return (
 	<div>
 		<Appbar title="니콘내콘" />
+		<Banner />
 		<HomeCategory category={category} />
 		<ProductList lists={lists} />
 		<CompanyContent />
