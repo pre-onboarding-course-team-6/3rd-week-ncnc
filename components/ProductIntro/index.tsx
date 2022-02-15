@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductIntroProps } from "shared/const";
+import { ProductIntroProps } from "shared/type";
 import * as S from "./styled";
 
 type Props = ProductIntroProps;

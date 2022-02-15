@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { ProductProps } from "shared/const";
+import { ProductProps } from "shared/type";
 import Appbar from "components/Appbar";
 import ProductList from "components/ProductList";
+import CompanyContent from "components/CompanyContent";
 
 const Index = () => {
   const [lists, setLists] = useState<ProductProps[] | null>(null);
@@ -26,6 +27,7 @@ const Index = () => {
 	<div>
 		<Appbar title="니콘내콘" />
 		<ProductList lists={lists} />
+		<CompanyContent />
 	</div>
   );
 };

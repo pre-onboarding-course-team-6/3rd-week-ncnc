@@ -45,7 +45,7 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
 						name={info.name}
 						id={info.id}
 					/>
-          ))}
+				))}
 			</CategoryInfoList>
 		</CategoryBody>
 	</>
