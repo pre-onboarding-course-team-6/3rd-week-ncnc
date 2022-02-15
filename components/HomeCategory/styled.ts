@@ -6,12 +6,14 @@ export const Section = styled.section`
 
 export const MainWrapper = styled.div`
   padding: 17px;
+  box-sizing: border-box;
 `;
 
 export const ContentBoxWrapper = styled.div`
   float: left;
   width: 33%;
   padding: 1px;
+  box-sizing: border-box;
   `;
 
 export const ContentBox = styled.div`
