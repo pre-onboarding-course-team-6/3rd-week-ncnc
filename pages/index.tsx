@@ -16,7 +16,7 @@ type Props = {
 
 const Index: React.FC<Props> = ({ lists, category }) => (
 	<div>
-		<Appbar title="니콘내콘" />
+		<Appbar title="니콘내콘" isBorder />
 		<Banner />
 		<HomeCategory category={category} />
 		<ProductList lists={lists} />
