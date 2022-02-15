@@ -1,50 +1,61 @@
 import styled from "styled-components";
 
-export const HorizontalBox = styled.ul`
+export const Wrapper = styled.div`
     display: flex;
-    flex-direction: row;
-    width: 375px;
-    height: 42px;
+    flex-direction: column;
+    box-sizing: border-box;
+`;
+
+export const Section = styled.section`
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const FlexBox = styled.div`
+    width: 100%;
+    display: flex;
     overflow-x: scroll;
-    border-bottom: 1px solid #C4C4C4;
-    gap: 13px;
-`;
-
-export const BoxItem = styled.li`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding:0px 5px;
-    font-size: 14px;
-    font-weight: 500;
-    height: 40px;
+    overflow-y: hidden;
     white-space: nowrap;
-    &:hover {
-        color: #FF5757;
-        cursor: pointer;
-        border-bottom: 2px solid #FF5757;
-    }
-    &:nth-child(1) {
-        margin-left: 17px;
-    }
-
+    -webkit-overflow-scrolling: touch;
+    height: 41px;
+    background-color: #fff;
+    font-size: 16px;
 `;
 
-export const CategoryBody = styled.div`
-    width: 375px;
-    display: flex;
-    min-height: 100vh;
-    align-items: start;
-    justify-content: center;
-    background-color: #F1F3F4;
+export const MenuWrapper = styled.div`
+    border-bottom: 1px solid #ccc;
+    padding: 0px 10px;
 `;
 
-export const CategoryInfoList = styled.div`
-    width: min-content;
-    height: min-content;
-    background-color: #F1F3F4;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    padding: 17px;
+export const Menu = styled.button`
+    padding: 10px 14px;
+    height: 41px;
+    box-shadow: none!important;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+    color: #333;
+`;
+
+export const BoxItem = styled.button`
+    padding: 10px 14px;
+    height: 41px;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+`;
+
+export const CurrentMenu = styled.button`
+    color: #f75656;
+    font-size: 16px;
+    border-bottom: 2px solid #f75656;
+    padding: 10px 14px 9px 14px;
+    box-shadow: none!important;
+    cursor: pointer;
+    background-color: #fff;
 `;

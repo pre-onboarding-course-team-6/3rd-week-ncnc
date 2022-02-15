@@ -3,17 +3,12 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Appbar from "components/Appbar";
-import CategoryTile from "components/CategoryTile";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { ICategory, CategoryInfo } from "shared/const";
-import {
-  HorizontalBox,
-  BoxItem,
-  CategoryInfoList,
-  CategoryBody,
-} from "./style";
+import HomeCategory from "components/HomeCategory";
+import * as S from "./style";
 
 type Props = {
     categories: ICategory[],
@@ -24,31 +19,36 @@ const Category: React.FC<Props> = ({ categories, categoryInfos }) => {
   const router = useRouter();
   const { id } = router.query;
   const currentCategory = categories.find((element) => element.id === Number(id));
+
   return (
-	<>
+	<div>
 		<Appbar isBorder={false} title={currentCategory.name} />
-		<HorizontalBox>
-			{categories.map(((category, index) => (
-				<Link key={index} href={`${category.id}`}>
-					<BoxItem>
-						{category.name}
-					</BoxItem>
-				</Link>
-			)))}
-		</HorizontalBox>
-		<CategoryBody>
-			<CategoryInfoList>
-				{categoryInfos.map((info, index) => (
-					<CategoryTile
-						key={index}
-						profileImgUrl={info.imageUrl}
-						name={info.name}
-						id={info.id}
-					/>
-				))}
-			</CategoryInfoList>
-		</CategoryBody>
-	</>
+		<S.Wrapper>
+			<S.Section>
+				<S.FlexBox>
+					<S.MenuWrapper>
+						{categories.map(((category, index) => {
+						  const { name } = category;
+						  const categoryId = category.id;
+						  return (
+							<Link key={index} href={`${categoryId}`}>
+								{categoryId === Number(id) ? (
+									<S.CurrentMenu>
+										{name}
+									</S.CurrentMenu>
+								) : (
+									<S.BoxItem>{name}</S.BoxItem>
+								)}
+							</Link>
+						  );
+						}))}
+					</S.MenuWrapper>
+				</S.FlexBox>
+			</S.Section>
+			<div style={{ marginTop: "40px" }} />
+			<HomeCategory category={categoryInfos} />
+		</S.Wrapper>
+	</div>
   );
 };
 
