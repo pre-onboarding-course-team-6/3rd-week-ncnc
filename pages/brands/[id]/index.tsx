@@ -34,7 +34,7 @@ const Brand: React.FC<Props> = ({ title, items }) => {
           <meta name="keywords" content={title} />
       </Head>
       <Appbar
-        iconName="ChevronLeft"
+        iconName="BackIcon"
         isBorder={isBorder}
         title={title}
         menuOnClick={() => {
@@ -42,16 +42,18 @@ const Brand: React.FC<Props> = ({ title, items }) => {
         }}
       />
       <BrandTopContainer>{items && items.length} 개의 상품</BrandTopContainer>
-      {items.map((item, index) => (
-        <ProductIntro
-          key={index}
-          id={item.id}
-          imageUrl={item.imageUrl}
-          name={item.name}
-          originalPrice={item.originalPrice}
-          minSellingPrice={item.minSellingPrice}
-        />
-      ))}
+      <section className="ProductList">
+        {items.map((item, index) => (
+          <ProductIntro
+            key={index}
+            id={item.id}
+            imageUrl={item.imageUrl}
+            name={item.name}
+            originalPrice={item.originalPrice}
+            minSellingPrice={item.minSellingPrice}
+          />
+        ))}
+      </section>
     </>
   );
 };

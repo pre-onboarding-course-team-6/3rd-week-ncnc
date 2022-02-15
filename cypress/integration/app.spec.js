@@ -13,7 +13,7 @@ describe("Cypress E2E test start", () => {
   //     cy.get(".HomeCategory > div > div").should(($categoty) => {
   //       expect($categoty).to.have.length(9);
   //     });
-  //     cy.get(".ProductList").should("be.visible");
+  //     cy.get(".SoonList").should("be.visible");
   //     cy.get(".CompanyContent").should("be.visible");
   //     cy.get(".moreCompanyInfoOpen").click();
   //     cy.get(".moreCompanyInfo").should("be.visible");
@@ -64,43 +64,49 @@ describe("Cypress E2E test start", () => {
   //   });
   // });
 
-  describe("Category page render test", () => {
-    beforeEach(() => {
-      cy.visit("/categories/1");
-    });
-    it("Category page AppBar test", () => {
-      cy.get(".AppBar > div > h2").contains("땡철이");
-      cy.visit("/");
-      cy.contains("땡철이").click();
-      cy.get(".AppBar > div > button").should("have.class", "BackIcon").click();
-      cy.url().should("have.eq", "http://localhost:3000/");
-    });
-    it("Category menu render test", () => {
-      cy.get(".CategoryMenu > div > div> button").should(($menu) => {
-        expect($menu).to.have.length(9);
-      });
-      cy.contains("카페").click();
-      cy.url().should("have.eq", "http://localhost:3000/categories/67");
-      cy.get(".HomeCategory").should("be.visible");
-    });
-    it("Category link test", () => {
-      cy.get(".HomeCategory > div > div:first > div > a")
-        .click()
-        .should(($target) => {
-          expect($target.text()).equal("엔제리너스커피");
-        });
-      cy.get(".HomeCategory > div > div:first").click();
-      cy.url().should("include", "/brands/");
-    });
-  });
-
-  // describe("Brand page render test", () => {
+  // describe("Category page render test", () => {
   //   beforeEach(() => {
-  //     cy.visit("/brands/63");
+  //     cy.visit("/categories/1");
   //   });
-  //   it("Brand page AppBar test", () => {
-  //     cy.get(".AppBar").contains("스타벅스");
-  //     cy.get(".AppBar > div > button").should("have.class", "BackIcon");
+  //   it("Category page AppBar test", () => {
+  //     cy.get(".AppBar > div > h2").contains("땡철이");
+  //     cy.visit("/");
+  //     cy.contains("땡철이").click();
+  //     cy.get(".AppBar > div > button").should("have.class", "BackIcon").click();
+  //     cy.url().should("have.eq", "http://localhost:3000/");
+  //   });
+  //   it("Category menu render test", () => {
+  //     cy.get(".CategoryMenu > div > div> button").should(($menu) => {
+  //       expect($menu).to.have.length(9);
+  //     });
+  //     cy.contains("카페").click();
+  //     cy.url().should("have.eq", "http://localhost:3000/categories/67");
+  //     cy.get(".HomeCategory").should("be.visible");
+  //   });
+  //   it("Category link test", () => {
+  //     cy.get(".HomeCategory > div > div:first > div > a")
+  //       .click()
+  //       .should(($target) => {
+  //         expect($target.text()).equal("엔제리너스커피");
+  //       });
+  //     cy.get(".HomeCategory > div > div:first").click();
+  //     cy.url().should("include", "/brands/");
   //   });
   // });
+
+  describe("Brand page render test", () => {
+    beforeEach(() => {
+      cy.visit("/brands/63");
+    });
+    it("Brand page AppBar test", () => {
+      cy.visit("http://localhost:3000/categories/67");
+      cy.contains("스타벅스").click();
+      cy.url().should("have.eq", "http://localhost:3000/brands/63");
+      cy.get(".AppBar").contains("스타벅스");
+      cy.get(".AppBar > div > button").should("have.class", "BackIcon").click();
+    });
+    it("Brand page render test", () => {
+      cy.get(".ProductList").should("be.visible");
+    });
+  });
 });
