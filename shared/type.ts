@@ -22,7 +22,7 @@ export interface ProductIntroProps{
   originalPrice: number,
   minSellingPrice: number,
   id: number,
-  conCategory2: {
+  conCategory2?: {
     id: number,
     name: string
   }
