@@ -15,7 +15,6 @@ const Appbar: React.FC<Props> = ({ title, isBorder }) => {
   const isDeviceInfo = true;
   const router = useRouter();
   const { id } = router.query;
-  console.log(id);
 
   return (
 	<AppbarContainer>
