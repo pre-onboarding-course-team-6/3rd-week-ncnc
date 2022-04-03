@@ -142,7 +142,6 @@ const Item: React.FC<Props> = ({ item }) => {
   const { name, warning, conCategory2, options, discountRate } = item;
   const { conCategory1 } = conCategory2;
   const { info } = conCategory1;
-  const warnnigArray = warning.split("\n")
 
   const handleOption = (option: ItemOption) => {
     setSelected(option);
@@ -188,7 +187,7 @@ const Item: React.FC<Props> = ({ item }) => {
 			conCategory2={conCategory2}
 		/>
 		<ItemsBody>
-      {warnnigArray && warnnigArray.map(word => {
+      {warning && warning.split("\n").map(word => {
         if(word[0]=== "["){
           const ref =word.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi, "");
           return(<TitleBox>{ref}</TitleBox>)
